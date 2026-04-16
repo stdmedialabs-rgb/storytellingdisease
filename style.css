@@ -966,18 +966,31 @@ nav.sc {
 #films {
   padding: 80px 48px;
   border-top: 1px solid var(--BOR);
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 26, 0.2) 0%,
+    rgba(20, 20, 20, 0.1) 100%
+  );
 }
 .films-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 2px;
+  gap: 12px;
   margin-top: 36px;
 }
 .film-card {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  background: var(--TX);
+  background: rgba(30, 30, 30, 0.6);
+  border: 1.5px solid rgba(245, 242, 0, 0.15);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.film-card:hover {
+  border-color: rgba(245, 242, 0, 0.5);
+  box-shadow: 0 12px 48px rgba(245, 242, 0, 0.15);
+  background: rgba(40, 40, 40, 0.8);
 }
 .film-card-img {
   aspect-ratio: 2/3;
@@ -986,11 +999,14 @@ nav.sc {
   justify-content: flex-start;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.7) 0%, rgba(15, 15, 15, 0.5) 100%);
 }
 .film-bg {
   position: absolute;
   inset: 0;
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background-size: cover;
+  background-position: center;
 }
 .film-card:hover .film-bg {
   transform: scale(1.07);
@@ -1001,46 +1017,94 @@ nav.sc {
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.95) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    transparent 100%
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0.15) 100%
   );
+  z-index: 1;
 }
 .film-info {
   position: relative;
-  z-index: 2;
-  padding: 14px;
+  z-index: 3;
+  padding: 18px;
 }
 .film-title {
   font-family: var(--FD);
   font-size: 16px;
-  letter-spacing: 1px;
-  line-height: 1.1;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
   color: #fff;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 .film-kannada {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 6px;
+  color: rgba(245, 242, 0, 0.6);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
 }
 .film-badge {
-  font-size: 8px;
+  font-size: 7px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--TX);
   background: var(--Yb);
-  padding: 3px 8px;
+  padding: 4px 10px;
   display: inline-block;
+  border-radius: 2px;
+  font-weight: 700;
+  margin-right: 4px;
+  margin-bottom: 4px;
 }
 .film-card.featured {
   grid-column: span 2;
+  grid-row: span 2;
+  background: linear-gradient(135deg, rgba(30, 30, 30, 0.9) 0%, rgba(20, 20, 20, 0.8) 100%);
+  border: 2px solid rgba(245, 242, 0, 0.25);
+}
+.film-card.featured:hover {
+  border-color: rgba(245, 242, 0, 0.6);
+  box-shadow: 0 16px 64px rgba(245, 242, 0, 0.2);
 }
 .film-card.featured .film-card-img {
   aspect-ratio: auto;
-  min-height: 420px;
+  min-height: 320px;
 }
 .film-card.featured .film-title {
-  font-size: clamp(18px, 2.5vw, 28px);
+  font-size: clamp(20px, 2.8vw, 32px);
+  margin-bottom: 8px;
+}
+.film-play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.film-play-btn::before {
+  content: "";
+  width: 90px;
+  height: 90px;
+  border: 3px solid rgba(245, 242, 0, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: rgba(0, 0, 0, 0.3);
+}
+.film-play-btn::after {
+  content: "";
+  position: absolute;
+  border-left: 35px solid rgba(245, 242, 0, 0.9);
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  margin-left: 12px;
+}
+.film-card.featured:hover .film-play-btn {
+  opacity: 1;
 }
 
 /* ── TEAM ── */
