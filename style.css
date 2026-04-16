@@ -15,8 +15,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 section,nav,footer,div.mbar,div.lrow,#reel{position:relative;z-index:1}
 
 /* CURSOR */
-#cDot{width:10px;height:10px;background:var(--TX);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transition:width .25s,height .25s}
-#cRing{width:36px;height:36px;border:1px solid rgba(0,0,0,.4);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:width .3s,height .3s}
+#cDot{width:10px;height:10px;background:var(--TX);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;opacity:0;transition:width .25s,height .25s,opacity .25s}
+#cRing{width:36px;height:36px;border:1px solid rgba(0,0,0,.4);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;opacity:0;transition:width .3s,height .3s,opacity .3s}
 #cTxt{position:fixed;top:0;left:0;pointer-events:none;z-index:9997;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:var(--TX);padding:4px 10px;opacity:0;transition:opacity .3s;white-space:nowrap;font-family:var(--FB);font-weight:500}
 
 /* NAV */

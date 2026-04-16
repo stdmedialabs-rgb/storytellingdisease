@@ -1,21 +1,46 @@
 /* CURSOR */
-const cD = document.getElementById("cDot"),
-  cR = document.getElementById("cRing"),
-  cT = document.getElementById("cTxt");
-let mx = 0,
-  my = 0,
-  rx = 0,
-  ry = 0;
+const cD = document.getElementById("cDot"), cR = document.getElementById("cRing"), cT = document.getElementById("cTxt");
+let mx = -100, my = -100, rx = -100, ry = -100;
+
+function updC() {
+  cD.style.transform = "translate(" + (mx - 5) + "px," + (my - 5) + "px)";
+  cT.style.transform = "translate(" + (mx + 14) + "px," + (my - 8) + "px)";
+}
+
 document.addEventListener("mousemove", (e) => {
   mx = e.clientX;
   my = e.clientY;
-  cD.style.transform = `translate(${mx - 5}px,${my - 5}px)`;
-  cT.style.transform = `translate(${mx + 14}px,${my - 8}px)`;
+  cD.style.opacity = "1";
+  cR.style.opacity = "1";
+  updC();
 });
+
+document.addEventListener("touchstart", (e) => {
+  mx = e.touches[0].clientX;
+  my = e.touches[0].clientY;
+  rx = mx;
+  ry = my;
+  cD.style.opacity = "1";
+  cR.style.opacity = "1";
+  updC();
+}, {passive:true});
+
+document.addEventListener("touchmove", (e) => {
+  mx = e.touches[0].clientX;
+  my = e.touches[0].clientY;
+  updC();
+}, {passive:true});
+
+document.addEventListener("touchend", () => {
+  cD.style.opacity = "0";
+  cR.style.opacity = "0";
+  cT.style.opacity = "0";
+});
+
 (function ar() {
   rx += (mx - rx) * 0.1;
   ry += (my - ry) * 0.1;
-  cR.style.transform = `translate(${rx - 18}px,${ry - 18}px)`;
+  cR.style.transform = "translate(" + (rx - 18) + "px," + (ry - 18) + "px)";
   requestAnimationFrame(ar);
 })();
 document.querySelectorAll("[data-cursor]").forEach((el) => {
@@ -177,3 +202,5 @@ const obs = new IntersectionObserver(
   { threshold: 0.1 },
 );
 document.querySelectorAll(".rv").forEach((el) => obs.observe(el));
+
+
