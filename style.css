@@ -666,6 +666,37 @@ body:not(.light-mode) .fbot {
 body:not(.light-mode) .svcpill:hover {
   background: rgba(255, 255, 255, 0.05);
 }
+body:not(.light-mode) .agrid,
+body:not(.light-mode) .team-grid,
+body:not(.light-mode) .why-grid,
+body:not(.light-mode) .svcpills {
+  gap: 2px;
+}
+body:not(.light-mode) .abl,
+body:not(.light-mode) .team-card,
+body:not(.light-mode) .why-card,
+body:not(.light-mode) .svcpill {
+  background: #141414;
+}
+body:not(.light-mode) .abl.wide {
+  background: #101010;
+}
+body:not(.light-mode) .anum,
+body:not(.light-mode) .aword,
+body:not(.light-mode) .svcpill-name,
+body:not(.light-mode) .team-name,
+body:not(.light-mode) .why-title {
+  color: #ffffff;
+}
+body:not(.light-mode) .albl,
+body:not(.light-mode) .ainsta,
+body:not(.light-mode) .team-role,
+body:not(.light-mode) .team-bio,
+body:not(.light-mode) .why-body,
+body:not(.light-mode) .svleft p,
+body:not(.light-mode) .svbi p {
+  color: rgba(255, 255, 255, 0.75);
+}
 body:not(.light-mode) .svnum,
 body:not(.light-mode) .why-num,
 body:not(.light-mode) .thnum,
