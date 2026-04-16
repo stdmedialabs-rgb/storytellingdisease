@@ -108,6 +108,22 @@ div.lrow,
     height 0.25s,
     opacity 0.25s;
 }
+#cDot,
+#cRing,
+#cTxt {
+  will-change: transform, opacity;
+}
+body:not(.light-mode) #cDot {
+  background: #f5f200;
+  box-shadow: 0 0 12px rgba(245, 242, 0, 0.7);
+}
+body:not(.light-mode) #cRing {
+  border-color: rgba(245, 242, 0, 0.55);
+}
+body:not(.light-mode) #cTxt {
+  color: #080807;
+  background: #f5f200;
+}
 #cRing {
   width: 36px;
   height: 36px;
@@ -299,7 +315,7 @@ body:not(.light-mode) .ncta:hover {
 body:not(.light-mode) .theme-toggle {
   color: #f5f200;
   border-color: rgba(245, 242, 0, 0.45);
-  background: rgba(245, 242, 0, 0.06);
+  background: rgba(8, 8, 7, 0.92);
 }
 body:not(.light-mode) .theme-toggle-icon {
   border-radius: 50%;
@@ -307,9 +323,9 @@ body:not(.light-mode) .theme-toggle-icon {
   transform: rotate(-18deg);
 }
 body.light-mode .theme-toggle {
-  color: #1a1a1a;
-  border-color: rgba(0, 0, 0, 0.18);
-  background: rgba(255, 255, 255, 0.88);
+  color: #ff6b35;
+  border-color: rgba(255, 107, 53, 0.5);
+  background: rgba(255, 107, 53, 0.12);
 }
 body.light-mode .theme-toggle-icon {
   border-radius: 50%;
@@ -323,6 +339,23 @@ body.light-mode .theme-toggle-icon {
     6px -6px 0 -6px currentColor,
     -6px 6px 0 -6px currentColor,
     6px 6px 0 -6px currentColor;
+}
+body.light-mode .hero-agency-name span:first-child,
+body.light-mode .htin span,
+body.light-mode .stl,
+body.light-mode .film-kannada,
+body.light-mode .reel-tag,
+body.light-mode .team-role,
+body.light-mode .fleg a,
+body.light-mode .scat,
+body.light-mode .cley,
+body.light-mode .min span,
+body.light-mode .eye {
+  color: rgba(255, 107, 53, 0.88);
+}
+body.light-mode .htin .sep,
+body.light-mode .min .ds {
+  color: rgba(255, 107, 53, 0.55);
 }
 
 /* MOBILE MENU */
