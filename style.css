@@ -1143,6 +1143,16 @@ body:not(.light-mode) .pill {
   border-color: rgba(245, 242, 0, 0.55);
   background: rgba(255, 255, 255, 0.04);
 }
+body:not(.light-mode) #services .bto {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.38) !important;
+  background: rgba(255, 255, 255, 0.03);
+}
+body:not(.light-mode) #services .bto:hover {
+  color: #ffffff !important;
+  border-color: rgba(245, 242, 0, 0.65) !important;
+  background: rgba(245, 242, 0, 0.08);
+}
 /* About grid */
 .agrid {
   display: grid;
