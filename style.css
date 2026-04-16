@@ -1404,14 +1404,15 @@ body.light-mode .film-card:hover {
 
 /* ── TEAM ── */
 #team {
+  padding: 80px 48px;
   color: var(--page-fg-soft);
-  border: 1px solid var(--border-soft);
+  border-top: 1px solid var(--BOR);
 }
 .team-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2px;
-  margin-top: 40px;
+  margin-top: 0;
 }
 .team-card {
   display: flex;
@@ -1474,7 +1475,11 @@ body.light-mode .film-card:hover {
 .team-header-row {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
+  gap: 20px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-soft);
 }
 .team-vert {
   display: flex;
@@ -2058,6 +2063,9 @@ footer {
   }
   .team-grid {
     grid-template-columns: 1fr;
+  }
+  .team-vert {
+    display: none;
   }
   .why-grid {
     grid-template-columns: 1fr;
