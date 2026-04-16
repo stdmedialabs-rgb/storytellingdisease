@@ -1,841 +1,869 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Story Telling Disease — We Craft Soulful Narratives</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&family=Anton&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --Y:#d4c800;--Yb:#f5f200;--Yl:#fffb80;--BK:#ffffff;--BK2:#f5f5f0;--BK3:#ebebe5;
-  --TX:#0a0a00;--MUT:#888800;--MUTL:#555500;--BOR:rgba(0,0,0,.1);--BOR2:rgba(0,0,0,.22);
-  --FD:'Bebas Neue',sans-serif;--FS:'DM Serif Display',serif;--FB:'DM Sans',sans-serif;
-  --AN:'Anton',sans-serif;
-}
-html{scroll-behavior:smooth}
-body{background:var(--BK);color:var(--TX);font-family:var(--FB);font-weight:300;line-height:1.6;overflow-x:hidden;cursor:none}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Story Telling Disease — We Craft Soulful Narratives</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="cDot"></div>
+    <div id="cRing"></div>
+    <div id="cTxt"></div>
 
-/* ── DIAGONAL STRIPE TEXTURE ── */
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:repeating-linear-gradient(135deg,rgba(0,0,0,.025) 0px,rgba(0,0,0,.025) 1px,transparent 1px,transparent 28px);
-}
-section,nav,footer,div.mbar,div.lrow,#reel{position:relative;z-index:1}
-
-/* CURSOR */
-#cDot{width:10px;height:10px;background:var(--TX);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transition:width .25s,height .25s}
-#cRing{width:36px;height:36px;border:1px solid rgba(0,0,0,.4);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:width .3s,height .3s}
-#cTxt{position:fixed;top:0;left:0;pointer-events:none;z-index:9997;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:var(--TX);padding:4px 10px;opacity:0;transition:opacity .3s;white-space:nowrap;font-family:var(--FB);font-weight:500}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;transition:background .4s,padding .4s}
-nav.sc{background:rgba(255,255,255,.97);backdrop-filter:blur(16px);padding:12px 48px;border-bottom:1px solid var(--BOR)}
-.nlogo{display:flex;align-items:center;gap:14px;text-decoration:none}
-.nlogo-badge{width:44px;height:44px;background:var(--TX);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.nlogo-badge svg{width:28px;height:28px}
-.nlogo-text{display:flex;flex-direction:column;line-height:1}
-.nlogo-std{font-family:var(--AN);font-size:18px;letter-spacing:4px;color:var(--TX)}
-.nlogo-sub{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--MUT)}
-.nlinks{display:flex;gap:30px;list-style:none}
-.nlinks a{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--MUT);text-decoration:none;transition:color .3s;font-weight:400}
-.nlinks a:hover{color:var(--TX)}
-.ncta{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:var(--TX);padding:10px 20px;text-decoration:none;font-weight:500;transition:background .3s}
-.ncta:hover{background:#333300}
-.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer}
-.hbg span{display:block;width:22px;height:1px;background:var(--TX)}
-
-/* MOBILE MENU */
-.mmenu{display:none;position:fixed;inset:0;background:var(--TX);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:28px}
-.mmenu.open{display:flex}
-.mmenu a{font-family:var(--FD);font-size:40px;letter-spacing:4px;color:#fff;text-decoration:none}
-.mclose{position:absolute;top:22px;right:40px;font-size:22px;cursor:pointer;background:none;border:none;color:#fff}
-
-/* ── HERO ── */
-#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 72px;position:relative;overflow:hidden}
-.hglow{position:absolute;top:5%;right:-15%;width:80vw;height:80vw;background:radial-gradient(circle,rgba(245,242,0,.18) 0%,transparent 62%);pointer-events:none}
-
-/* STD Logo badge hero */
-.hero-logo-wrap{margin-bottom:28px;opacity:0;animation:fu .7s .2s ease forwards;display:flex;align-items:center;gap:18px}
-.hero-badge{width:90px;height:90px;background:var(--Yb);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
-.hero-badge-inner{text-align:center}
-.hero-badge-std{font-family:var(--AN);font-size:22px;letter-spacing:2px;color:var(--TX);line-height:1}
-.hero-badge-film{font-size:6px;letter-spacing:1px;color:var(--TX);opacity:.7;text-transform:uppercase}
-.hero-badge-ring{position:absolute;inset:-4px;border-radius:50%;border:2px dashed rgba(0,0,0,.2);animation:spin 18s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.hero-agency-name{display:flex;flex-direction:column}
-.hero-agency-name span:first-child{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--MUT)}
-.hero-agency-name strong{font-family:var(--AN);font-size:clamp(20px,3vw,32px);letter-spacing:3px;color:var(--TX)}
-
-.htitle{font-family:var(--FD);font-size:clamp(58px,10.5vw,142px);line-height:.88;letter-spacing:-1px;max-width:1000px;color:var(--TX);opacity:0;animation:fu .9s .45s ease forwards}
-.htitle em{font-family:var(--FS);font-style:italic;color:var(--TX);-webkit-text-stroke:0;}
-
-/* hero ticker */
-.hticker{overflow:hidden;border-top:1px solid var(--BOR);border-bottom:1px solid var(--BOR);padding:13px 0;margin:32px 0 0;opacity:0;animation:fu .7s .8s ease forwards}
-.htin{display:inline-flex;animation:tick 30s linear infinite}
-.htin span{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--MUT);padding:0 28px}
-.htin .sep{color:var(--TX);opacity:.3;padding:0 4px}
-
-.hbot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:36px;opacity:0;animation:fu .7s 1s ease forwards;gap:28px;flex-wrap:wrap}
-.hdesc{max-width:360px;font-size:13px;color:#555;line-height:1.9}
-.hdesc strong{color:var(--TX);font-weight:500}
-.hstats{display:flex;gap:36px}
-.stn{font-family:var(--FD);font-size:38px;color:var(--TX);line-height:1}
-.stl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--MUT);margin-top:2px}
-
-/* ── REEL ── */
-#reel{border-top:1px solid var(--BOR);position:relative;overflow:hidden;cursor:pointer}
-.reel-inner{width:100%;aspect-ratio:16/9;background:var(--TX);display:flex;align-items:center;justify-content:center;position:relative}
-.reel-bg-txt{font-family:var(--AN);font-size:clamp(40px,9vw,120px);color:rgba(255,255,255,.04);letter-spacing:8px;user-select:none;white-space:nowrap;text-align:center;padding:0 20px}
-.play{position:absolute;width:80px;height:80px;border:2px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .3s,transform .3s}
-.play::after{content:'';border-left:28px solid #fff;border-top:16px solid transparent;border-bottom:16px solid transparent;margin-left:7px;transition:border-left-color .3s}
-#reel:hover .play{background:var(--Yb);border-color:var(--Yb);transform:scale(1.1)}
-#reel:hover .play::after{border-left-color:var(--TX)}
-.reel-cap{position:absolute;bottom:28px;left:48px;font-family:var(--FD);font-size:clamp(14px,2.2vw,28px);letter-spacing:3px;color:rgba(255,255,255,.5)}
-.reel-tag{position:absolute;top:24px;right:32px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.2);padding:6px 14px}
-
-/* ── WORK SLIDER ── */
-#work{padding:80px 0;border-top:1px solid var(--BOR)}
-.wh{display:flex;justify-content:space-between;align-items:flex-end;padding:0 48px;margin-bottom:36px}
-.scnt{font-family:var(--FD);font-size:15px;letter-spacing:3px;color:#bbb}
-.scnt span{color:var(--TX)}
-.snav{display:flex;gap:8px}
-.sb{width:42px;height:42px;border:1px solid var(--BOR2);background:none;cursor:pointer;color:var(--TX);font-size:17px;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s;font-family:var(--FB)}
-.sb:hover{background:var(--TX);color:#fff}
-.frow{display:flex;gap:4px;padding:0 48px;margin-bottom:32px;flex-wrap:wrap}
-.fb{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#999;background:none;border:1px solid transparent;padding:8px 16px;cursor:pointer;font-family:var(--FB);transition:color .3s,border-color .3s}
-.fb.on,.fb:hover{color:var(--TX);border-color:var(--BOR2)}
-.fb.on{border-color:var(--TX)}
-.slwrap{display:flex;gap:3px;padding:0 48px}
-.smain{flex:1;position:relative;overflow:hidden;min-height:460px;background:var(--BK3);cursor:pointer}
-.smain-img{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .7s cubic-bezier(.25,.46,.45,.94)}
-.smain:hover .smain-img{transform:scale(1.04)}
-.sinfo{position:absolute;bottom:0;left:0;right:0;padding:32px;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.2) 60%,transparent 100%)}
-.scat{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--Yb);opacity:.85;margin-bottom:8px}
-.stitle{font-family:var(--FD);font-size:clamp(20px,3vw,42px);letter-spacing:1px;line-height:1;color:#fff}
-.ssub{font-size:12px;color:rgba(255,255,255,.5);margin-top:5px}
-.sarr{position:absolute;top:20px;right:20px;font-size:22px;color:#fff;opacity:0;transition:opacity .3s}
-.smain:hover .sarr{opacity:1}
-.tcol{display:flex;flex-direction:column;gap:3px;width:230px;flex-shrink:0}
-.sthumb{flex:1;position:relative;overflow:hidden;background:var(--BK3);cursor:pointer;min-height:90px}
-.sthumb-img{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .5s,filter .5s;filter:brightness(.5) saturate(.2)}
-.sthumb.act .sthumb-img{filter:brightness(1) saturate(1)}
-.sthumb:hover .sthumb-img{transform:scale(1.06);filter:brightness(.75)}
-.thlbl{position:absolute;bottom:9px;left:11px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5)}
-.sthumb.act .thlbl{color:#fff}
-.thnum{position:absolute;top:9px;right:9px;font-family:var(--FD);font-size:10px;color:rgba(255,255,255,.3)}
-.sthumb.act .thnum{color:#fff}
-
-/* ── DIVIDER MARQUEE ── */
-.mbar{border-top:1px solid var(--BOR);border-bottom:1px solid var(--BOR);padding:12px 0;overflow:hidden;background:var(--TX)}
-.min{display:inline-flex;animation:tick 18s linear infinite}
-.min span{font-family:var(--FD);font-size:13px;letter-spacing:4px;color:rgba(255,255,255,.3);padding:0 28px}
-.min .ds{color:var(--Yb)}
-
-/* ── ABOUT ── */
-#about{padding:100px 48px;border-top:1px solid var(--BOR);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.abig{font-family:var(--AN);font-size:clamp(80px,12vw,160px);color:rgba(0,0,0,.04);letter-spacing:-2px;line-height:1;user-select:none;margin-bottom:-32px}
-.aquote{border-left:3px solid var(--TX);padding-left:22px;margin-bottom:28px}
-.aquote p{font-family:var(--FS);font-style:italic;font-size:clamp(16px,2vw,24px);color:var(--TX);line-height:1.45}
-.abody{font-size:13px;color:#555;line-height:1.9;margin-bottom:14px}
-.abody strong{color:var(--TX);font-weight:500}
-.apills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-.pill{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--TX);border:1px solid var(--BOR2);padding:6px 13px}
-/* About grid */
-.agrid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.abl{background:var(--BK2);aspect-ratio:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;border:1px solid var(--BOR)}
-.abl.wide{grid-column:span 2;aspect-ratio:2/1;background:var(--TX);border:1px solid var(--BOR);gap:6px}
-.anum{font-family:var(--FD);font-size:clamp(32px,4vw,56px);color:var(--TX);letter-spacing:2px;line-height:1}
-.albl{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--MUT);text-align:center;padding:0 8px}
-.aword{font-family:var(--AN);font-size:clamp(20px,3.5vw,42px);color:rgba(255,255,255,.08);letter-spacing:4px;text-align:center;padding:8px}
-.ainsta{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:2px;text-transform:uppercase}
-
-/* ── SERVICES ── */
-#services{padding:80px 48px;border-top:1px solid var(--BOR)}
-.svgrid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.svleft h2{font-family:var(--FD);font-size:clamp(34px,5.5vw,72px);line-height:.9;letter-spacing:-1px;margin-bottom:18px;color:var(--TX)}
-.svleft p{font-size:13px;color:#555;line-height:1.8;margin-bottom:28px}
-.svcpills{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.svcpill{display:flex;align-items:center;gap:14px;border:1px solid var(--BOR);padding:16px 20px;transition:border-color .3s,background .3s;cursor:default}
-.svcpill:hover{border-color:var(--TX);background:var(--BK2)}
-.svcpill-icon{width:36px;height:36px;background:var(--Yb);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
-.svcpill-name{font-family:var(--FD);font-size:16px;letter-spacing:1.5px;color:var(--TX)}
-.svlist{border-top:1px solid var(--BOR)}
-.svi{border-bottom:1px solid var(--BOR);overflow:hidden}
-.svh{display:flex;align-items:center;justify-content:space-between;padding:18px 0;cursor:pointer;gap:14px}
-.svnum{font-size:9px;letter-spacing:2px;color:#bbb;width:26px;flex-shrink:0}
-.svname{font-family:var(--FD);font-size:clamp(15px,2vw,24px);letter-spacing:2px;flex:1;color:#888;transition:color .3s}
-.svarrow{font-size:20px;color:var(--TX);transition:transform .4s;line-height:1}
-.svi.open .svarrow{transform:rotate(45deg)}
-.svi.open .svname,.svh:hover .svname{color:var(--TX)}
-.svbody{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.25,.46,.45,.94)}
-.svbi{padding:0 0 20px 38px}
-.svbi p{font-size:12px;color:#666;line-height:1.8}
-
-/* ── FILMS ── */
-#films{padding:80px 48px;border-top:1px solid var(--BOR)}
-.films-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:36px}
-.film-card{position:relative;overflow:hidden;cursor:pointer;background:var(--TX)}
-.film-card-img{aspect-ratio:2/3;display:flex;align-items:flex-end;justify-content:flex-start;position:relative;overflow:hidden}
-.film-bg{position:absolute;inset:0;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
-.film-card:hover .film-bg{transform:scale(1.07)}
-.film-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.3) 50%,transparent 100%)}
-.film-info{position:relative;z-index:2;padding:14px}
-.film-title{font-family:var(--FD);font-size:16px;letter-spacing:1px;line-height:1.1;color:#fff;margin-bottom:4px}
-.film-kannada{font-size:11px;color:rgba(255,255,255,.5);margin-bottom:6px}
-.film-badge{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--TX);background:var(--Yb);padding:3px 8px;display:inline-block}
-.film-card.featured{grid-column:span 2}
-.film-card.featured .film-card-img{aspect-ratio:auto;min-height:420px}
-.film-card.featured .film-title{font-size:clamp(18px,2.5vw,28px)}
-
-/* ── TEAM ── */
-#team{padding:80px 48px;border-top:1px solid var(--BOR)}
-.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:40px}
-.team-card{display:flex;gap:32px;background:var(--BK2);padding:40px;border:1px solid var(--BOR);align-items:flex-start;transition:border-color .3s}
-.team-card:hover{border-color:var(--BOR2)}
-.team-photo{width:120px;height:140px;object-fit:cover;flex-shrink:0;filter:grayscale(20%);background:var(--BK3)}
-.team-photo-placeholder{width:120px;height:140px;background:var(--TX);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--FD);font-size:36px;color:rgba(255,255,255,.15);letter-spacing:2px}
-.team-info{}
-.team-name{font-family:var(--AN);font-size:clamp(18px,2.5vw,26px);letter-spacing:2px;color:var(--TX);margin-bottom:4px}
-.team-role{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--MUT);margin-bottom:16px}
-.team-bio{font-size:12px;color:#666;line-height:1.8}
-.team-header-row{display:flex;justify-content:space-between;align-items:flex-start}
-.team-vert{display:flex;flex-direction:column;gap:0}
-.team-vert span{font-family:var(--FD);font-size:clamp(36px,5vw,64px);color:rgba(0,0,0,.06);letter-spacing:2px;line-height:.95}
-
-/* ── CLIENTS ── */
-#clients{padding:60px 0;border-top:1px solid var(--BOR);overflow:hidden}
-.cley{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#999;text-align:center;margin-bottom:10px}
-.cl-sub{font-size:12px;color:#777;text-align:center;max-width:600px;margin:0 auto 32px;line-height:1.7}
-.lrow{overflow:hidden;border-top:1px solid var(--BOR);border-bottom:1px solid var(--BOR);padding:11px 0;margin-bottom:2px}
-.ltrack{display:inline-flex;white-space:nowrap;animation:logoFwd 20s linear infinite}
-.ltrack.rev{animation:logoRev 22s linear infinite}
-.litem{padding:7px 36px;font-family:var(--FD);font-size:14px;letter-spacing:3px;color:#aaa;border-right:1px solid var(--BOR);transition:color .3s;cursor:default}
-.litem:hover{color:var(--TX)}
-
-/* ── WHY US ── */
-#why{padding:80px 48px;border-top:1px solid var(--BOR)}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:40px}
-.why-card{background:var(--BK2);padding:40px 32px;border:1px solid var(--BOR);position:relative;overflow:hidden;transition:border-color .4s}
-.why-card::before{content:'';position:absolute;top:0;left:0;width:0;height:3px;background:var(--TX);transition:width .5s cubic-bezier(.25,.46,.45,.94)}
-.why-card:hover::before{width:100%}
-.why-card:hover{border-color:var(--BOR2)}
-.why-num{font-family:var(--FD);font-size:10px;letter-spacing:3px;color:#bbb;margin-bottom:20px}
-.why-title{font-family:var(--FD);font-size:clamp(20px,2.5vw,28px);letter-spacing:2px;color:var(--TX);margin-bottom:14px;line-height:1.1}
-.why-body{font-size:12px;color:#666;line-height:1.8}
-
-/* ── CTA ── */
-#cta{padding:120px 48px;text-align:center;border-top:1px solid var(--BOR);position:relative;overflow:hidden;background:var(--TX)}
-.ctaglow{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(245,242,0,.08) 0%,transparent 70%);pointer-events:none}
-.ctag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px}
-.cttitle{font-family:var(--FD);font-size:clamp(48px,9.5vw,124px);line-height:.88;letter-spacing:-1px;max-width:900px;margin:0 auto 16px;color:#fff}
-.cttitle em{font-family:var(--FS);font-style:italic;color:var(--Yb)}
-.ct-sub{font-size:14px;color:rgba(255,255,255,.4);max-width:480px;margin:0 auto 44px;line-height:1.8}
-.ct-sub span{color:var(--Yb)}
-.ctrow{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:40px}
-.bty{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--TX);background:var(--Yb);padding:16px 40px;text-decoration:none;font-weight:500;transition:background .3s,transform .2s}
-.bty:hover{background:var(--Yl);transform:translateY(-2px)}
-.bto{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#fff;background:transparent;padding:16px 40px;text-decoration:none;border:1px solid rgba(255,255,255,.25);transition:border-color .3s,transform .2s}
-.bto:hover{border-color:#fff;transform:translateY(-2px)}
-.ct-contact{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.1);padding-top:40px;margin-top:8px}
-.ct-contact-item{text-align:center}
-.ct-contact-label{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px}
-.ct-contact-val{font-family:var(--FD);font-size:clamp(16px,2.5vw,24px);letter-spacing:2px;color:#fff}
-.ct-contact-val a{color:inherit;text-decoration:none;transition:opacity .3s}
-.ct-contact-val a:hover{opacity:.7}
-
-/* ── FOOTER ── */
-footer{border-top:1px solid var(--BOR);background:var(--BK2)}
-.fmain{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;border-bottom:1px solid var(--BOR)}
-.fcol{padding:36px 30px;border-right:1px solid var(--BOR)}
-.fcol:last-child{border-right:none}
-.flogo-wrap{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.flogo-badge{width:40px;height:40px;background:var(--TX);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.flogo-badge span{font-family:var(--AN);font-size:11px;letter-spacing:1px;color:#fff}
-.flogo-text .fstd{font-family:var(--AN);font-size:22px;letter-spacing:3px;color:var(--TX)}
-.flogo-text .fsub{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--MUT)}
-.ftag{font-size:10px;letter-spacing:1px;color:#888;margin-bottom:20px;line-height:1.6;max-width:220px}
-.fsocs{display:flex;gap:8px}
-.soc{width:30px;height:30px;border:1px solid var(--BOR);display:flex;align-items:center;justify-content:center;font-size:10px;color:#999;text-decoration:none;transition:border-color .3s,color .3s;font-family:var(--FB);font-weight:500}
-.soc:hover{border-color:var(--TX);color:var(--TX)}
-.fch{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--MUTL);margin-bottom:16px}
-.fcol ul{list-style:none;display:flex;flex-direction:column;gap:11px}
-.fcol a{font-size:12px;color:#888;text-decoration:none;transition:color .3s}
-.fcol a:hover{color:var(--TX)}
-.faddress{font-size:12px;color:#888;line-height:1.8;margin-bottom:16px}
-.faddress strong{color:var(--TX);font-weight:500}
-.fbot{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;border-top:1px solid var(--BOR)}
-.fcopy{font-size:10px;color:#aaa;letter-spacing:1px}
-.fleg{display:flex;gap:16px}
-.fleg a{font-size:10px;color:#aaa;text-decoration:none;transition:color .3s}
-.fleg a:hover{color:var(--TX)}
-
-/* SHARED */
-.eye{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--MUT);margin-bottom:10px;display:block}
-.sectitle{font-family:var(--FD);font-size:clamp(32px,5vw,72px);line-height:.9;letter-spacing:-1px;color:var(--TX)}
-.rv{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease}
-.rv.vis{opacity:1;transform:translateY(0)}
-.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
-
-/* ANIMATIONS */
-@keyframes fu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes logoFwd{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes logoRev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-
-/* RESPONSIVE */
-@media(max-width:960px){
-  nav{padding:16px 24px}nav.sc{padding:11px 24px}
-  .nlinks,.ncta{display:none}.hbg{display:flex}
-  #hero{padding:0 24px 56px}
-  .hbot{flex-direction:column;gap:22px;align-items:flex-start}
-  #about{grid-template-columns:1fr;padding:60px 24px}
-  .svgrid{grid-template-columns:1fr;gap:36px}
-  #services,#films,#team,#why,#cta,#insights{padding:60px 24px}
-  .slwrap{flex-direction:column;padding:0 24px}
-  .tcol{flex-direction:row;width:100%}
-  .wh,.frow{padding:0 24px}
-  .films-grid{grid-template-columns:repeat(2,1fr)}
-  .film-card.featured{grid-column:span 2}
-  .team-grid{grid-template-columns:1fr}
-  .why-grid{grid-template-columns:1fr}
-  .fmain{grid-template-columns:1fr 1fr}
-  .svcpills{grid-template-columns:1fr}
-  .ct-contact{gap:24px}
-  .fbot{flex-direction:column;gap:10px;padding:14px 24px}
-}
-@media(max-width:580px){
-  .hstats{gap:20px}.fmain{grid-template-columns:1fr}
-  .films-grid{grid-template-columns:1fr}
-  .film-card.featured{grid-column:span 1}
-  .team-card{flex-direction:column}
-}
-</style>
-</head>
-<body>
-
-<div id="cDot"></div>
-<div id="cRing"></div>
-<div id="cTxt"></div>
-
-<!-- MOBILE MENU -->
-<div class="mmenu" id="mm">
-  <button class="mclose" id="mc">✕</button>
-  <a href="#work" onclick="cm()">Work</a>
-  <a href="#films" onclick="cm()">Films</a>
-  <a href="#about" onclick="cm()">About</a>
-  <a href="#services" onclick="cm()">Services</a>
-  <a href="#team" onclick="cm()">Team</a>
-  <a href="#cta" onclick="cm()">Contact</a>
-</div>
-
-<!-- NAV -->
-<nav id="nb">
-  <a href="#" class="nlogo">
-    <div class="nlogo-badge">
-      <!-- STD filmstrip badge SVG -->
-      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="14" cy="11" r="5" fill="#f5f200"/>
-        <rect x="3" y="3" width="2" height="3" rx=".5" fill="#ffffff"/>
-        <rect x="3" y="8" width="2" height="3" rx=".5" fill="#ffffff"/>
-        <rect x="3" y="13" width="2" height="3" rx=".5" fill="#ffffff"/>
-        <rect x="23" y="3" width="2" height="3" rx=".5" fill="#ffffff"/>
-        <rect x="23" y="8" width="2" height="3" rx=".5" fill="#ffffff"/>
-        <rect x="23" y="13" width="2" height="3" rx=".5" fill="#ffffff"/>
-        <rect x="2" y="19" width="24" height="7" rx="2" fill="#f5f200"/>
-        <text x="14" y="25" text-anchor="middle" font-family="Anton,sans-serif" font-size="5" fill="#0a0a00" letter-spacing="1">STD</text>
-      </svg>
+    <!-- MOBILE MENU -->
+    <div class="mmenu" id="mm">
+      <button class="mclose" id="mc">✕</button>
+      <a href="#work" onclick="cm()">Work</a>
+      <a href="#films" onclick="cm()">Films</a>
+      <a href="#about" onclick="cm()">About</a>
+      <a href="#services" onclick="cm()">Services</a>
+      <a href="#team" onclick="cm()">Team</a>
+      <a href="#cta" onclick="cm()">Contact</a>
     </div>
-    <div class="nlogo-text">
-      <span class="nlogo-std">STD</span>
-      <span class="nlogo-sub">Story Telling Disease</span>
-    </div>
-  </a>
-  <ul class="nlinks">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#films">Films</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#team">Team</a></li>
-    <li><a href="#clients">Clients</a></li>
-  </ul>
-  <a href="#cta" class="ncta">Get in Touch →</a>
-  <div class="hbg" id="hb"><span></span><span></span><span></span></div>
-</nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hglow"></div>
-
-  <!-- STD Badge + Agency Name -->
-  <div class="hero-logo-wrap">
-    <div class="hero-badge">
-      <div class="hero-badge-ring"></div>
-      <div class="hero-badge-inner">
-        <div class="hero-badge-std">STD</div>
-        <div class="hero-badge-film">■■■■■■■■</div>
-      </div>
-    </div>
-    <div class="hero-agency-name">
-      <span>Est. 2020 · Bengaluru</span>
-      <strong>STORY TELLING DISEASE</strong>
-    </div>
-  </div>
-
-  <h1 class="htitle">READY TO<br>UNLEASH <em>Your Story?</em></h1>
-
-  <div class="hticker">
-    <div class="htin">
-      <span>Ad Films</span><span class="sep">✦</span>
-      <span>Corporate Videos</span><span class="sep">✦</span>
-      <span>Music Videos</span><span class="sep">✦</span>
-      <span>Documentary Films</span><span class="sep">✦</span>
-      <span>Live Events</span><span class="sep">✦</span>
-      <span>Social Media</span><span class="sep">✦</span>
-      <span>Movie Promotions</span><span class="sep">✦</span>
-      <span>Short Films</span><span class="sep">✦</span>
-      <span>Ad Films</span><span class="sep">✦</span>
-      <span>Corporate Videos</span><span class="sep">✦</span>
-      <span>Music Videos</span><span class="sep">✦</span>
-      <span>Documentary Films</span><span class="sep">✦</span>
-      <span>Live Events</span><span class="sep">✦</span>
-      <span>Social Media</span><span class="sep">✦</span>
-      <span>Movie Promotions</span><span class="sep">✦</span>
-      <span>Short Films</span><span class="sep">✦</span>
-    </div>
-  </div>
-
-  <div class="hbot">
-    <p class="hdesc">Infected with the <strong>incurable urge to tell stories</strong>, we bring together exceptional writers, directors, cinematographers, and editors who craft soulful narratives that forge genuine connections between your brand and your audience.</p>
-    <div class="hstats">
-      <div><div class="stn">5+</div><div class="stl">Years Active</div></div>
-      <div><div class="stn">50+</div><div class="stl">Brand Clients</div></div>
-      <div><div class="stn">5</div><div class="stl">Festival Films</div></div>
-    </div>
-    <a href="#cta" class="bty" style="align-self:flex-end;flex-shrink:0">Together, let's CREATE →</a>
-  </div>
-</section>
-
-<!-- AGENCY REEL -->
-<div id="reel" data-cursor="Play Reel">
-  <div class="reel-inner">
-    <div class="reel-bg-txt">STORY TELLING DISEASE · SHOWREEL 2025</div>
-    <div class="play"></div>
-    <div class="reel-cap">SHOWREEL 2025 ↗</div>
-    <div class="reel-tag">@storytellingdisease</div>
-  </div>
-</div>
-
-<!-- WORK / CASE STUDIES SLIDER -->
-<section id="work">
-  <div class="wh rv">
-    <div>
-      <span class="eye">Our Work</span>
-      <h2 class="sectitle">AD FILMS &<br>CAMPAIGNS</h2>
-    </div>
-    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px">
-      <div class="scnt"><span id="slC">01</span> / <span id="slT">06</span></div>
-      <div class="snav"><button class="sb" id="slP">←</button><button class="sb" id="slN">→</button></div>
-    </div>
-  </div>
-  <div class="frow rv rd1">
-    <button class="fb on" data-f="all">All</button>
-    <button class="fb" data-f="adfilm">Ad Films</button>
-    <button class="fb" data-f="corporate">Corporate</button>
-    <button class="fb" data-f="promo">Movie Promo</button>
-    <button class="fb" data-f="social">Social</button>
-  </div>
-  <div class="slwrap rv rd2">
-    <div class="smain" id="sM">
-      <div class="smain-img" id="sMI" style="background:linear-gradient(135deg,#1a1a1a,#333)">
-        <span style="font-family:'Anton',sans-serif;font-size:clamp(28px,6vw,80px);color:rgba(255,255,255,.08);letter-spacing:8px;text-align:center;padding:16px" id="sMW">POTHYS SWARNA MAHAL</span>
-      </div>
-      <div class="sinfo">
-        <div class="scat" id="sCC">Ad Film</div>
-        <div class="stitle" id="sCT">Pothys Swarna Mahal — Jewellery Ad Campaign</div>
-        <div class="ssub" id="sCS">Storytelling-led brand film for South India's premier jewellery brand</div>
-      </div>
-      <span class="sarr">↗</span>
-    </div>
-    <div class="tcol" id="tC"></div>
-  </div>
-</section>
-
-<!-- MARQUEE DIVIDER -->
-<div class="mbar">
-  <div class="min">
-    <span>INFECTED WITH THE URGE TO TELL STORIES</span><span class="ds">✦</span>
-    <span>BENGALURU'S PREMIER AD FILM HOUSE</span><span class="ds">✦</span>
-    <span>EST. 2020</span><span class="ds">✦</span>
-    <span>WE CRAFT SOULFUL NARRATIVES</span><span class="ds">✦</span>
-    <span>INFECTED WITH THE URGE TO TELL STORIES</span><span class="ds">✦</span>
-    <span>BENGALURU'S PREMIER AD FILM HOUSE</span><span class="ds">✦</span>
-    <span>EST. 2020</span><span class="ds">✦</span>
-    <span>WE CRAFT SOULFUL NARRATIVES</span><span class="ds">✦</span>
-  </div>
-</div>
-
-<!-- ORIGINAL FILMS -->
-<section id="films">
-  <div class="rv">
-    <span class="eye">Original Productions</span>
-    <h2 class="sectitle">OUR ORIGINAL<br>STORIES</h2>
-    <p style="font-size:13px;color:rgba(245,242,0,.45);margin-top:12px;max-width:560px;line-height:1.8">Beyond client work, we create original films that have been selected at prestigious festivals across India.</p>
-  </div>
-  <div class="films-grid rv rd1">
-    <!-- Featured: Nam Kaaladalli -->
-    <div class="film-card featured">
-      <div class="film-card-img">
-        <div class="film-bg" style="background:linear-gradient(160deg,#1a1000,#2d1a00,#0a0800);width:100%;height:100%;position:absolute"></div>
-        <div class="film-grad"></div>
-        <div class="film-info">
-          <div class="film-title" style="font-size:clamp(16px,2.2vw,26px)">ನಮ್ ಕಾಲದಲ್ಲಿ ಹಿಂಗ್ ಇರ್ಲಿಲ್ಲ</div>
-          <div class="film-kannada">Nam Kaaladalli Hing Irlilla</div>
-          <div style="display:flex;flex-wrap:wrap;gap:4px">
-            <div class="film-badge">Ahmedabad Int'l Film Fest 2025</div>
-            <div class="film-badge" style="background:transparent;color:var(--Y);border:1px solid rgba(245,242,0,.3)">Alibag Short Film Fest</div>
-            <div class="film-badge" style="background:transparent;color:var(--Y);border:1px solid rgba(245,242,0,.3)">Pune Short Film Fest</div>
-          </div>
-          <div style="font-size:10px;letter-spacing:1px;color:rgba(245,242,0,.35);margin-top:8px">Dir. Chandan Kumar · Feat. Dattanna</div>
+    <!-- NAV -->
+    <nav id="nb">
+      <a href="#" class="nlogo">
+        <div class="nlogo-badge">
+          <!-- STD filmstrip badge SVG -->
+          <svg
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="14" cy="11" r="5" fill="#f5f200" />
+            <rect x="3" y="3" width="2" height="3" rx=".5" fill="#ffffff" />
+            <rect x="3" y="8" width="2" height="3" rx=".5" fill="#ffffff" />
+            <rect x="3" y="13" width="2" height="3" rx=".5" fill="#ffffff" />
+            <rect x="23" y="3" width="2" height="3" rx=".5" fill="#ffffff" />
+            <rect x="23" y="8" width="2" height="3" rx=".5" fill="#ffffff" />
+            <rect x="23" y="13" width="2" height="3" rx=".5" fill="#ffffff" />
+            <rect x="2" y="19" width="24" height="7" rx="2" fill="#f5f200" />
+            <text
+              x="14"
+              y="25"
+              text-anchor="middle"
+              font-family="Anton,sans-serif"
+              font-size="5"
+              fill="#0a0a00"
+              letter-spacing="1"
+            >
+              STD
+            </text>
+          </svg>
         </div>
-      </div>
-    </div>
-    <!-- Bag -->
-    <div class="film-card">
-      <div class="film-card-img">
-        <div class="film-bg" style="background:linear-gradient(160deg,#100800,#1a0e00);width:100%;height:100%;position:absolute"></div>
-        <div class="film-grad"></div>
-        <div class="film-info">
-          <div class="film-title">ಬ್ಯಾಗ್</div>
-          <div class="film-kannada">Bag</div>
-          <div class="film-badge">Short Film</div>
+        <div class="nlogo-text">
+          <span class="nlogo-std">STD</span>
+          <span class="nlogo-sub">Story Telling Disease</span>
         </div>
-      </div>
-    </div>
-    <!-- Kshana -->
-    <div class="film-card">
-      <div class="film-card-img">
-        <div class="film-bg" style="background:linear-gradient(160deg,#0f0a00,#1f1400);width:100%;height:100%;position:absolute"></div>
-        <div class="film-grad"></div>
-        <div class="film-info">
-          <div class="film-title">ಕ್ಷಣ</div>
-          <div class="film-kannada">Kshana</div>
-          <div class="film-badge">Short Film</div>
-        </div>
-      </div>
-    </div>
-    <!-- Memory -->
-    <div class="film-card">
-      <div class="film-card-img">
-        <div class="film-bg" style="background:linear-gradient(160deg,#080a00,#111500);width:100%;height:100%;position:absolute"></div>
-        <div class="film-grad"></div>
-        <div class="film-info">
-          <div class="film-title">ಮೆಮೊರಿ</div>
-          <div class="film-kannada">Memory</div>
-          <div class="film-badge">Short Film</div>
-        </div>
-      </div>
-    </div>
-    <!-- Geluvu -->
-    <div class="film-card">
-      <div class="film-card-img">
-        <div class="film-bg" style="background:linear-gradient(160deg,#0a0d00,#141a00);width:100%;height:100%;position:absolute"></div>
-        <div class="film-grad"></div>
-        <div class="film-info">
-          <div class="film-title">ಗೆಲುವು</div>
-          <div class="film-kannada">Geluvu</div>
-          <div class="film-badge">Short Film</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="rv">
-    <div class="abig">STD</div>
-    <div class="aquote"><p>"We don't just create content;<br>we craft soulful narratives."</p></div>
-    <p class="abody">Established in <strong>2020</strong>, Story Telling Disease (STD) is a premier advertising agency based in <strong>Bengaluru</strong>, specialising in Ad films, corporate videos, and movie promotions.</p>
-    <p class="abody">With a strong creative vision and a results-driven approach, we have successfully collaborated with <strong>leading brands and businesses across India</strong> — from jewellery to tech, real estate to entertainment.</p>
-    <p class="abody">We are infected with the incurable urge to tell stories. Our team of exceptional <strong>writers, directors, cinematographers, and editors</strong> forge genuine connections between your brand and your audience.</p>
-    <div class="apills">
-      <span class="pill">Story First</span>
-      <span class="pill">Craft Led</span>
-      <span class="pill">Results Driven</span>
-      <span class="pill">Emotionally Connected</span>
-    </div>
-  </div>
-  <div class="agrid rv rd2">
-    <div class="abl wide">
-      <div class="aword">STORY TELLING DISEASE</div>
-      <div class="ainsta">@storytellingdisease</div>
-    </div>
-    <div class="abl"><div class="anum">2020</div><div class="albl">Est. Bengaluru</div></div>
-    <div class="abl"><div class="anum">50+</div><div class="albl">Brand Clients</div></div>
-    <div class="abl"><div class="anum">5</div><div class="albl">Festival Films</div></div>
-    <div class="abl"><div class="anum">389</div><div class="albl">Posts · @storytellingdisease</div></div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="svgrid">
-    <div class="rv">
-      <span class="eye">At STD, we bring ideas to life through</span>
-      <div class="svleft">
-        <h2 class="sectitle" style="margin-bottom:18px">OUR<br>SERVICES</h2>
-        <p>We are a full-spectrum creative production house. Whatever the brief, we have the specialists to bring it to life.</p>
-        <a href="#cta" class="bto" style="display:inline-block;margin-top:18px;color:var(--TX);border-color:var(--BOR2)">Start a Story →</a>
-      </div>
-      <!-- Services pills (matching the STD brand slide) -->
-      <div class="svcpills" style="margin-top:32px">
-        <div class="svcpill"><div class="svcpill-icon">🎬</div><div class="svcpill-name">Ad Films</div></div>
-        <div class="svcpill"><div class="svcpill-icon">🎵</div><div class="svcpill-name">Music Videos</div></div>
-        <div class="svcpill"><div class="svcpill-icon">🏢</div><div class="svcpill-name">Corporate Videos</div></div>
-        <div class="svcpill"><div class="svcpill-icon">🎪</div><div class="svcpill-name">Live Events</div></div>
-        <div class="svcpill"><div class="svcpill-icon">🎥</div><div class="svcpill-name">Documentary Films</div></div>
-        <div class="svcpill"><div class="svcpill-icon">📱</div><div class="svcpill-name">Social Media</div></div>
-      </div>
-    </div>
-    <div class="rv rd2">
-      <span class="eye" style="margin-bottom:18px">How we work</span>
-      <div class="svlist" id="svL">
-        <div class="svi open">
-          <div class="svh" onclick="tSvc(this)"><span class="svnum">01</span><span class="svname">AD FILMS & BRAND FILMS</span><span class="svarrow">+</span></div>
-          <div class="svbody" style="max-height:200px"><div class="svbi"><p>From concept to final cut, we create powerful ad films that tell your brand's story with emotional depth and cinematic craft. Each film is built to leave a lasting impression.</p></div></div>
-        </div>
-        <div class="svi"><div class="svh" onclick="tSvc(this)"><span class="svnum">02</span><span class="svname">CORPORATE VIDEO PRODUCTION</span><span class="svarrow">+</span></div><div class="svbody"><div class="svbi"><p>We produce high-quality corporate videos — from internal communications and training films to event coverage and brand documentaries that reflect your company culture.</p></div></div></div>
-        <div class="svi"><div class="svh" onclick="tSvc(this)"><span class="svnum">03</span><span class="svname">MOVIE PROMOTIONS</span><span class="svarrow">+</span></div><div class="svbody"><div class="svbi"><p>Trailers, teasers, promotional content and social campaigns that build hype and drive audiences to cinemas. We understand the film industry inside out.</p></div></div></div>
-        <div class="svi"><div class="svh" onclick="tSvc(this)"><span class="svnum">04</span><span class="svname">MUSIC VIDEOS & LIVE EVENTS</span><span class="svarrow">+</span></div><div class="svbody"><div class="svbi"><p>Visually compelling music videos and full live event coverage — from multi-camera setups to creative direction and post-production.</p></div></div></div>
-        <div class="svi"><div class="svh" onclick="tSvc(this)"><span class="svnum">05</span><span class="svname">SOCIAL MEDIA CONTENT</span><span class="svarrow">+</span></div><div class="svbody"><div class="svbi"><p>Short-form reels, brand films, product videos and ongoing social content designed for engagement and reach across Instagram, YouTube and beyond.</p></div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CLIENTS -->
-<section id="clients">
-  <p class="cley rv">Our Story Telling Partners</p>
-  <p class="cl-sub rv rd1">We take pride in working with Pothys Swarna Mahal, Khazana Jewellers, Nalli Silks, Saravana Stores, Tanishq, Infosys, Hitachi, Asian Paints and many more.</p>
-  <div class="lrow"><div class="ltrack"><span class="litem">POTHYS</span><span class="litem">KALYAN SILKS</span><span class="litem">JEWEL ONE</span><span class="litem">TANISHQ</span><span class="litem">TVS EMERALD</span><span class="litem">JEYACHANDRAN TEXTILES</span><span class="litem">INDRIYA</span><span class="litem">APPASWAMY</span><span class="litem">VASAVI GROUP</span><span class="litem">VITERO</span><span class="litem">POTHYS</span><span class="litem">KALYAN SILKS</span><span class="litem">JEWEL ONE</span><span class="litem">TANISHQ</span><span class="litem">TVS EMERALD</span><span class="litem">JEYACHANDRAN TEXTILES</span><span class="litem">INDRIYA</span><span class="litem">APPASWAMY</span><span class="litem">VASAVI GROUP</span><span class="litem">VITERO</span></div></div>
-  <div class="lrow" style="margin-top:2px"><div class="ltrack rev"><span class="litem">INFOSYS</span><span class="litem">HITACHI</span><span class="litem">ASIAN PAINTS</span><span class="litem">NALLI SILKS</span><span class="litem">SARAVANA STORES</span><span class="litem">VERTEX HOMES</span><span class="litem">IVAS</span><span class="litem">HR CONSTRUCTION</span><span class="litem">KHAZANA JEWELLERS</span><span class="litem">APARNA ENTERPRISES</span><span class="litem">INFOSYS</span><span class="litem">HITACHI</span><span class="litem">ASIAN PAINTS</span><span class="litem">NALLI SILKS</span><span class="litem">SARAVANA STORES</span><span class="litem">VERTEX HOMES</span><span class="litem">IVAS</span><span class="litem">HR CONSTRUCTION</span><span class="litem">KHAZANA JEWELLERS</span><span class="litem">APARNA ENTERPRISES</span></div></div>
-</section>
-
-<!-- TEAM -->
-<section id="team">
-  <div class="team-header-row rv">
-    <div>
-      <span class="eye">The People Behind The Stories</span>
-      <h2 class="sectitle">MEET<br>THE TEAM</h2>
-    </div>
-    <div class="team-vert" aria-hidden="true">
-      <span>M</span><span>E</span><span>E</span><span>T</span>
-    </div>
-  </div>
-  <div class="team-grid rv rd1">
-    <!-- Chandan Kumar -->
-    <div class="team-card">
-      <div class="team-photo-placeholder">CK</div>
-      <div class="team-info">
-        <div class="team-name">CHANDAN KUMAR</div>
-        <div class="team-role">Founder & Director</div>
-        <p class="team-bio">Chandan Kumar is the Founder & Director of Story Telling Disease, a content creation company. With a diverse background in theatre, film, and media, he brings extensive experience to his work. His credits include fiction writing for <strong style="color:var(--TX);font-weight:500">Colors Kannada</strong>, copywriting for <strong style="color:var(--TX);font-weight:500">Radio City FM</strong>, and directing numerous successful ads and short films. His recent Kannada short film <em style="color:var(--TX)">"Nam Kaaladalli Hing Irlilla"</em> has garnered recognition at multiple film festivals.</p>
-      </div>
-    </div>
-    <!-- Lokesh Lingaraju -->
-    <div class="team-card">
-      <div class="team-photo-placeholder">LL</div>
-      <div class="team-info">
-        <div class="team-name">LOKESH LINGARAJU</div>
-        <div class="team-role">Technical Head</div>
-        <p class="team-bio">Lokesh, a <strong style="color:var(--TX);font-weight:500">St. Joseph's University film graduate</strong>, is a versatile cinematographer and art director. He has contributed his expertise to numerous advertisements, films, short films, and web series, demonstrating a keen eye for compelling visual storytelling. His technical mastery and artistic vision form the visual backbone of every STD production.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY CHOOSE US -->
-<section id="why">
-  <div class="rv">
-    <span class="eye">Why Choose STD?</span>
-    <h2 class="sectitle">WHY CHOOSE<br>US?</h2>
-  </div>
-  <div class="why-grid rv rd1">
-    <div class="why-card">
-      <div class="why-num">01</div>
-      <div class="why-title">CREATIVE EXCELLENCE</div>
-      <p class="why-body">A team of passionate storytellers, cinematographers, and marketers dedicated to delivering compelling content that doesn't just inform — it moves people.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-num">02</div>
-      <div class="why-title">INNOVATIVE APPROACH</div>
-      <p class="why-body">We blend creativity with strategy to craft campaigns that leave a lasting impact. Every project begins with a story worth telling and ends with results worth sharing.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-num">03</div>
-      <div class="why-title">PROVEN RESULTS</div>
-      <p class="why-body">Our track record of successful projects speaks for itself, with clients returning for our expertise in brand storytelling. From festival-winning films to high-ROI ad campaigns.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section id="cta">
-  <div class="ctaglow"></div>
-  <p class="ctag rv">We Are Just a Call Away</p>
-  <h2 class="cttitle rv rd1">TOGETHER LET'S<br>CREATE A <em>Beautiful Story</em></h2>
-  <p class="ct-sub rv rd2">Infected with the incurable urge to tell stories? So are we. Let's collaborate and build something <span>unforgettable</span> together.</p>
-  <div class="ctrow rv rd3">
-    <a href="tel:8073426636" class="bty">Call Us Now</a>
-    <a href="mailto:stdstorytellingdisease@gmail.com" class="bto">Send a Mail →</a>
-  </div>
-  <div class="ct-contact rv">
-    <div class="ct-contact-item">
-      <div class="ct-contact-label">Phone</div>
-      <div class="ct-contact-val"><a href="tel:8073426636">80734 26636</a></div>
-    </div>
-    <div class="ct-contact-item">
-      <div class="ct-contact-label">Email</div>
-      <div class="ct-contact-val" style="font-size:clamp(12px,1.8vw,18px)"><a href="mailto:stdstorytellingdisease@gmail.com">stdstorytellingdisease@gmail.com</a></div>
-    </div>
-    <div class="ct-contact-item">
-      <div class="ct-contact-label">Instagram</div>
-      <div class="ct-contact-val"><a href="https://instagram.com/storytellingdisease" target="_blank">@storytellingdisease</a></div>
-    </div>
-    <div class="ct-contact-item">
-      <div class="ct-contact-label">Location</div>
-      <div class="ct-contact-val">Bengaluru, India</div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="fmain">
-    <div class="fcol">
-      <div class="flogo-wrap">
-        <div class="flogo-badge"><span>STD</span></div>
-        <div class="flogo-text">
-          <div class="fstd">STD</div>
-          <div class="fsub">Story Telling Disease</div>
-        </div>
-      </div>
-      <p class="ftag">"Infected with the incurable urge to tell stories." — Est. 2020, Bengaluru</p>
-      <div class="fsocs">
-        <a class="soc" href="https://instagram.com/storytellingdisease" target="_blank" title="Instagram">ig</a>
-        <a class="soc" href="#" title="YouTube">yt</a>
-        <a class="soc" href="#" title="Facebook">fb</a>
-        <a class="soc" href="#" title="LinkedIn">in</a>
-      </div>
-    </div>
-    <div class="fcol">
-      <div class="fch">Navigate</div>
-      <ul>
-        <li><a href="#work">Our Work</a></li>
-        <li><a href="#films">Original Films</a></li>
-        <li><a href="#about">About Us</a></li>
+      </a>
+      <ul class="nlinks">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#films">Films</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#team">The Team</a></li>
-        <li><a href="#clients">Our Clients</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#clients">Clients</a></li>
       </ul>
-    </div>
-    <div class="fcol">
-      <div class="fch">Services</div>
-      <ul>
-        <li><a href="#">Ad Films</a></li>
-        <li><a href="#">Corporate Videos</a></li>
-        <li><a href="#">Music Videos</a></li>
-        <li><a href="#">Documentary Films</a></li>
-        <li><a href="#">Live Events</a></li>
-        <li><a href="#">Social Media Content</a></li>
-      </ul>
-    </div>
-    <div class="fcol">
-      <div class="fch">Get in Touch</div>
-      <div class="faddress">
-        <strong>Bengaluru, Karnataka</strong><br/>
-        India<br/><br/>
-        <a href="tel:8073426636" style="color:var(--TX);text-decoration:none">80734 26636</a><br/>
-        <a href="mailto:stdstorytellingdisease@gmail.com" style="color:#888;text-decoration:none;font-size:11px">stdstorytellingdisease@gmail.com</a>
+      <a href="#cta" class="ncta">Get in Touch →</a>
+      <div class="hbg" id="hb"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hglow"></div>
+
+      <!-- STD Badge + Agency Name -->
+      <div class="hero-logo-wrap">
+        <div class="hero-badge">
+          <div class="hero-badge-ring"></div>
+          <div class="hero-badge-inner">
+            <div class="hero-badge-std">STD</div>
+            <div class="hero-badge-film">■■■■■■■■</div>
+          </div>
+        </div>
+        <div class="hero-agency-name">
+          <span>Est. 2020 · Bengaluru</span>
+          <strong>STORY TELLING DISEASE</strong>
+        </div>
       </div>
-      <div class="fch" style="margin-top:8px">Follow Our Work</div>
-      <p style="font-size:12px;color:#888">@storytellingdisease<br/>389 posts · Instagram</p>
+
+      <h1 class="htitle">READY TO<br />UNLEASH <em>Your Story?</em></h1>
+
+      <div class="hticker">
+        <div class="htin">
+          <span>Ad Films</span><span class="sep">✦</span>
+          <span>Corporate Videos</span><span class="sep">✦</span>
+          <span>Music Videos</span><span class="sep">✦</span>
+          <span>Documentary Films</span><span class="sep">✦</span>
+          <span>Live Events</span><span class="sep">✦</span>
+          <span>Social Media</span><span class="sep">✦</span>
+          <span>Movie Promotions</span><span class="sep">✦</span>
+          <span>Short Films</span><span class="sep">✦</span>
+          <span>Ad Films</span><span class="sep">✦</span>
+          <span>Corporate Videos</span><span class="sep">✦</span>
+          <span>Music Videos</span><span class="sep">✦</span>
+          <span>Documentary Films</span><span class="sep">✦</span>
+          <span>Live Events</span><span class="sep">✦</span>
+          <span>Social Media</span><span class="sep">✦</span>
+          <span>Movie Promotions</span><span class="sep">✦</span>
+          <span>Short Films</span><span class="sep">✦</span>
+        </div>
+      </div>
+
+      <div class="hbot">
+        <p class="hdesc">
+          Infected with the <strong>incurable urge to tell stories</strong>, we
+          bring together exceptional writers, directors, cinematographers, and
+          editors who craft soulful narratives that forge genuine connections
+          between your brand and your audience.
+        </p>
+        <div class="hstats">
+          <div>
+            <div class="stn">5+</div>
+            <div class="stl">Years Active</div>
+          </div>
+          <div>
+            <div class="stn">50+</div>
+            <div class="stl">Brand Clients</div>
+          </div>
+          <div>
+            <div class="stn">5</div>
+            <div class="stl">Festival Films</div>
+          </div>
+        </div>
+        <a href="#cta" class="bty" style="align-self: flex-end; flex-shrink: 0"
+          >Together, let's CREATE →</a
+        >
+      </div>
+    </section>
+
+    <!-- AGENCY REEL -->
+    <div id="reel" data-cursor="Play Reel">
+      <div class="reel-inner">
+        <div class="reel-bg-txt">STORY TELLING DISEASE · SHOWREEL 2025</div>
+        <div class="play"></div>
+        <div class="reel-cap">SHOWREEL 2025 ↗</div>
+        <div class="reel-tag">@storytellingdisease</div>
+      </div>
     </div>
-  </div>
-  <div class="fbot">
-    <p class="fcopy">© 2026 Story Telling Disease (STD) · Bengaluru · All Rights Reserved</p>
-    <div class="fleg"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
-  </div>
-</footer>
 
-<script>
-/* CURSOR */
-const cD=document.getElementById('cDot'),cR=document.getElementById('cRing'),cT=document.getElementById('cTxt');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cD.style.transform=`translate(${mx-5}px,${my-5}px)`;cT.style.transform=`translate(${mx+14}px,${my-8}px)`});
-(function ar(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cR.style.transform=`translate(${rx-18}px,${ry-18}px)`;requestAnimationFrame(ar)})();
-document.querySelectorAll('[data-cursor]').forEach(el=>{el.addEventListener('mouseenter',()=>{cT.style.opacity='1';cT.textContent=el.dataset.cursor});el.addEventListener('mouseleave',()=>{cT.style.opacity='0'})});
-document.querySelectorAll('a,button,.smain,.sthumb,.film-card,.why-card,.svcpill,.team-card').forEach(el=>{el.addEventListener('mouseenter',()=>{cR.style.width='52px';cR.style.height='52px';cD.style.width='5px';cD.style.height='5px';cR.style.borderColor='rgba(0,0,0,.5)'});el.addEventListener('mouseleave',()=>{cR.style.width='36px';cR.style.height='36px';cD.style.width='10px';cD.style.height='10px'})});
+    <!-- WORK / CASE STUDIES SLIDER -->
+    <section id="work">
+      <div class="wh rv">
+        <div>
+          <span class="eye">Our Work</span>
+          <h2 class="sectitle">AD FILMS &<br />CAMPAIGNS</h2>
+        </div>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+          "
+        >
+          <div class="scnt">
+            <span id="slC">01</span> / <span id="slT">06</span>
+          </div>
+          <div class="snav">
+            <button class="sb" id="slP">←</button
+            ><button class="sb" id="slN">→</button>
+          </div>
+        </div>
+      </div>
+      <div class="frow rv rd1">
+        <button class="fb on" data-f="all">All</button>
+        <button class="fb" data-f="adfilm">Ad Films</button>
+        <button class="fb" data-f="corporate">Corporate</button>
+        <button class="fb" data-f="promo">Movie Promo</button>
+        <button class="fb" data-f="social">Social</button>
+      </div>
+      <div class="slwrap rv rd2">
+        <div class="smain" id="sM">
+          <div
+            class="smain-img"
+            id="sMI"
+            style="background: linear-gradient(135deg, #1a1a1a, #333)"
+          >
+            <span
+              style="
+                font-family: &quot;Anton&quot;, sans-serif;
+                font-size: clamp(28px, 6vw, 80px);
+                color: rgba(255, 255, 255, 0.08);
+                letter-spacing: 8px;
+                text-align: center;
+                padding: 16px;
+              "
+              id="sMW"
+              >POTHYS SWARNA MAHAL</span
+            >
+          </div>
+          <div class="sinfo">
+            <div class="scat" id="sCC">Ad Film</div>
+            <div class="stitle" id="sCT">
+              Pothys Swarna Mahal — Jewellery Ad Campaign
+            </div>
+            <div class="ssub" id="sCS">
+              Storytelling-led brand film for South India's premier jewellery
+              brand
+            </div>
+          </div>
+          <span class="sarr">↗</span>
+        </div>
+        <div class="tcol" id="tC"></div>
+      </div>
+    </section>
 
-/* NAV */
-const nb=document.getElementById('nb');
-window.addEventListener('scroll',()=>nb.classList.toggle('sc',scrollY>60));
-document.getElementById('hb').addEventListener('click',()=>document.getElementById('mm').classList.add('open'));
-document.getElementById('mc').addEventListener('click',cm);
-function cm(){document.getElementById('mm').classList.remove('open')}
+    <!-- MARQUEE DIVIDER -->
+    <div class="mbar">
+      <div class="min">
+        <span>INFECTED WITH THE URGE TO TELL STORIES</span
+        ><span class="ds">✦</span> <span>BENGALURU'S PREMIER AD FILM HOUSE</span
+        ><span class="ds">✦</span> <span>EST. 2020</span
+        ><span class="ds">✦</span> <span>WE CRAFT SOULFUL NARRATIVES</span
+        ><span class="ds">✦</span>
+        <span>INFECTED WITH THE URGE TO TELL STORIES</span
+        ><span class="ds">✦</span> <span>BENGALURU'S PREMIER AD FILM HOUSE</span
+        ><span class="ds">✦</span> <span>EST. 2020</span
+        ><span class="ds">✦</span> <span>WE CRAFT SOULFUL NARRATIVES</span
+        ><span class="ds">✦</span>
+      </div>
+    </div>
 
-/* SLIDES */
-const slides=[
-  {cat:'Ad Film',title:'Pothys Swarna Mahal — Jewellery Brand Campaign',sub:'Storytelling-led brand film for South India\'s premier jewellery brand',bg:'linear-gradient(135deg,#1a1a1a,#333)',w:'POTHYS',f:'adfilm'},
-  {cat:'Ad Film',title:'Tanishq — Tata Jewellery Campaign',sub:'Emotional narrative ad film for India\'s most trusted jewellery brand',bg:'linear-gradient(135deg,#111,#2a2216)',w:'TANISHQ',f:'adfilm'},
-  {cat:'Corporate',title:'Infosys — Corporate Film',sub:'Brand documentary showcasing culture and innovation at Infosys',bg:'linear-gradient(135deg,#0d0d0d,#1a1a1a)',w:'INFOSYS',f:'corporate'},
-  {cat:'Ad Film',title:'Kalyan Silks — Wedding Season Campaign',sub:'High-emotion brand film for the festive and wedding season',bg:'linear-gradient(135deg,#111,#222)',w:'KALYAN SILKS',f:'adfilm'},
-  {cat:'Movie Promo',title:'Film Promotion — Kannada Cinema',sub:'Promotional content and social strategy for Kannada film releases',bg:'linear-gradient(135deg,#0a0a0a,#1e1e14)',w:'FILM PROMO',f:'promo'},
-  {cat:'Corporate',title:'Hitachi — Corporate Video Production',sub:'Global brand, local story — corporate film for Hitachi India',bg:'linear-gradient(135deg,#0d0d0d,#1a1614)',w:'HITACHI',f:'corporate'},
-];
-let cur=0;
-function bldT(){
-  const c=document.getElementById('tC');c.innerHTML='';
-  [0,1,2].forEach(i=>{
-    const idx=(cur+i)%slides.length,s=slides[idx];
-    const d=document.createElement('div');d.className='sthumb'+(i===0?' act':'');
-    d.innerHTML=`<div class="sthumb-img" style="background:${s.bg}"><span style="font-family:'Anton',sans-serif;font-size:24px;color:rgba(255,255,255,.15);letter-spacing:2px;text-align:center;padding:8px">${s.w}</span></div><div class="thlbl">${s.cat}</div><div class="thnum">0${idx+1}</div>`;
-    d.addEventListener('click',()=>goTo(idx));c.appendChild(d);
-  });
-}
-function goTo(n){
-  cur=((n%slides.length)+slides.length)%slides.length;
-  const s=slides[cur];
-  document.getElementById('sMI').style.background=s.bg;
-  document.getElementById('sMW').textContent=s.w;
-  document.getElementById('sMW').style.color='rgba(255,255,255,.08)';
-  document.getElementById('sCC').textContent=s.cat;
-  document.getElementById('sCT').textContent=s.title;
-  document.getElementById('sCS').textContent=s.sub;
-  document.getElementById('slC').textContent=String(cur+1).padStart(2,'0');
-  bldT();
-}
-bldT();
-document.getElementById('slN').addEventListener('click',()=>goTo(cur+1));
-document.getElementById('slP').addEventListener('click',()=>goTo(cur-1));
-document.querySelectorAll('.fb').forEach(b=>b.addEventListener('click',()=>{
-  document.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));b.classList.add('on');
-  const f=b.dataset.f,idx=f==='all'?0:slides.findIndex(s=>s.f===f);
-  if(idx>=0)goTo(idx);
-}));
+    <!-- ORIGINAL FILMS -->
+    <section id="films">
+      <div class="rv">
+        <span class="eye">Original Productions</span>
+        <h2 class="sectitle">OUR ORIGINAL<br />STORIES</h2>
+        <p
+          style="
+            font-size: 13px;
+            color: rgba(245, 242, 0, 0.45);
+            margin-top: 12px;
+            max-width: 560px;
+            line-height: 1.8;
+          "
+        >
+          Beyond client work, we create original films that have been selected
+          at prestigious festivals across India.
+        </p>
+      </div>
+      <div class="films-grid rv rd1">
+        <!-- Featured: Nam Kaaladalli -->
+        <div class="film-card featured">
+          <div class="film-card-img">
+            <div
+              class="film-bg"
+              style="
+                background: linear-gradient(160deg, #1a1000, #2d1a00, #0a0800);
+                width: 100%;
+                height: 100%;
+                position: absolute;
+              "
+            ></div>
+            <div class="film-grad"></div>
+            <div class="film-info">
+              <div
+                class="film-title"
+                style="font-size: clamp(16px, 2.2vw, 26px)"
+              >
+                ನಮ್ ಕಾಲದಲ್ಲಿ ಹಿಂಗ್ ಇರ್ಲಿಲ್ಲ
+              </div>
+              <div class="film-kannada">Nam Kaaladalli Hing Irlilla</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 4px">
+                <div class="film-badge">Ahmedabad Int'l Film Fest 2025</div>
+                <div
+                  class="film-badge"
+                  style="
+                    background: transparent;
+                    color: var(--Y);
+                    border: 1px solid rgba(245, 242, 0, 0.3);
+                  "
+                >
+                  Alibag Short Film Fest
+                </div>
+                <div
+                  class="film-badge"
+                  style="
+                    background: transparent;
+                    color: var(--Y);
+                    border: 1px solid rgba(245, 242, 0, 0.3);
+                  "
+                >
+                  Pune Short Film Fest
+                </div>
+              </div>
+              <div
+                style="
+                  font-size: 10px;
+                  letter-spacing: 1px;
+                  color: rgba(245, 242, 0, 0.35);
+                  margin-top: 8px;
+                "
+              >
+                Dir. Chandan Kumar · Feat. Dattanna
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Bag -->
+        <div class="film-card">
+          <div class="film-card-img">
+            <div
+              class="film-bg"
+              style="
+                background: linear-gradient(160deg, #100800, #1a0e00);
+                width: 100%;
+                height: 100%;
+                position: absolute;
+              "
+            ></div>
+            <div class="film-grad"></div>
+            <div class="film-info">
+              <div class="film-title">ಬ್ಯಾಗ್</div>
+              <div class="film-kannada">Bag</div>
+              <div class="film-badge">Short Film</div>
+            </div>
+          </div>
+        </div>
+        <!-- Kshana -->
+        <div class="film-card">
+          <div class="film-card-img">
+            <div
+              class="film-bg"
+              style="
+                background: linear-gradient(160deg, #0f0a00, #1f1400);
+                width: 100%;
+                height: 100%;
+                position: absolute;
+              "
+            ></div>
+            <div class="film-grad"></div>
+            <div class="film-info">
+              <div class="film-title">ಕ್ಷಣ</div>
+              <div class="film-kannada">Kshana</div>
+              <div class="film-badge">Short Film</div>
+            </div>
+          </div>
+        </div>
+        <!-- Memory -->
+        <div class="film-card">
+          <div class="film-card-img">
+            <div
+              class="film-bg"
+              style="
+                background: linear-gradient(160deg, #080a00, #111500);
+                width: 100%;
+                height: 100%;
+                position: absolute;
+              "
+            ></div>
+            <div class="film-grad"></div>
+            <div class="film-info">
+              <div class="film-title">ಮೆಮೊರಿ</div>
+              <div class="film-kannada">Memory</div>
+              <div class="film-badge">Short Film</div>
+            </div>
+          </div>
+        </div>
+        <!-- Geluvu -->
+        <div class="film-card">
+          <div class="film-card-img">
+            <div
+              class="film-bg"
+              style="
+                background: linear-gradient(160deg, #0a0d00, #141a00);
+                width: 100%;
+                height: 100%;
+                position: absolute;
+              "
+            ></div>
+            <div class="film-grad"></div>
+            <div class="film-info">
+              <div class="film-title">ಗೆಲುವು</div>
+              <div class="film-kannada">Geluvu</div>
+              <div class="film-badge">Short Film</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-/* SERVICES ACCORDION */
-function tSvc(h){
-  const i=h.parentElement,o=i.classList.contains('open');
-  document.querySelectorAll('.svi').forEach(x=>{x.classList.remove('open');x.querySelector('.svbody').style.maxHeight='0'});
-  if(!o){i.classList.add('open');i.querySelector('.svbody').style.maxHeight='200px'}
-}
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="rv">
+        <div class="abig">STD</div>
+        <div class="aquote">
+          <p>
+            "We don't just create content;<br />we craft soulful narratives."
+          </p>
+        </div>
+        <p class="abody">
+          Established in <strong>2020</strong>, Story Telling Disease (STD) is a
+          premier advertising agency based in <strong>Bengaluru</strong>,
+          specialising in Ad films, corporate videos, and movie promotions.
+        </p>
+        <p class="abody">
+          With a strong creative vision and a results-driven approach, we have
+          successfully collaborated with
+          <strong>leading brands and businesses across India</strong> — from
+          jewellery to tech, real estate to entertainment.
+        </p>
+        <p class="abody">
+          We are infected with the incurable urge to tell stories. Our team of
+          exceptional
+          <strong>writers, directors, cinematographers, and editors</strong>
+          forge genuine connections between your brand and your audience.
+        </p>
+        <div class="apills">
+          <span class="pill">Story First</span>
+          <span class="pill">Craft Led</span>
+          <span class="pill">Results Driven</span>
+          <span class="pill">Emotionally Connected</span>
+        </div>
+      </div>
+      <div class="agrid rv rd2">
+        <div class="abl wide">
+          <div class="aword">STORY TELLING DISEASE</div>
+          <div class="ainsta">@storytellingdisease</div>
+        </div>
+        <div class="abl">
+          <div class="anum">2020</div>
+          <div class="albl">Est. Bengaluru</div>
+        </div>
+        <div class="abl">
+          <div class="anum">50+</div>
+          <div class="albl">Brand Clients</div>
+        </div>
+        <div class="abl">
+          <div class="anum">5</div>
+          <div class="albl">Festival Films</div>
+        </div>
+        <div class="abl">
+          <div class="anum">389</div>
+          <div class="albl">Posts · @storytellingdisease</div>
+        </div>
+      </div>
+    </section>
 
-/* SCROLL REVEAL */
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')}),{threshold:.1});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-</script>
-</body>
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="svgrid">
+        <div class="rv">
+          <span class="eye">At STD, we bring ideas to life through</span>
+          <div class="svleft">
+            <h2 class="sectitle" style="margin-bottom: 18px">
+              OUR<br />SERVICES
+            </h2>
+            <p>
+              We are a full-spectrum creative production house. Whatever the
+              brief, we have the specialists to bring it to life.
+            </p>
+            <a
+              href="#cta"
+              class="bto"
+              style="
+                display: inline-block;
+                margin-top: 18px;
+                color: var(--TX);
+                border-color: var(--BOR2);
+              "
+              >Start a Story →</a
+            >
+          </div>
+          <!-- Services pills (matching the STD brand slide) -->
+          <div class="svcpills" style="margin-top: 32px">
+            <div class="svcpill">
+              <div class="svcpill-icon">🎬</div>
+              <div class="svcpill-name">Ad Films</div>
+            </div>
+            <div class="svcpill">
+              <div class="svcpill-icon">🎵</div>
+              <div class="svcpill-name">Music Videos</div>
+            </div>
+            <div class="svcpill">
+              <div class="svcpill-icon">🏢</div>
+              <div class="svcpill-name">Corporate Videos</div>
+            </div>
+            <div class="svcpill">
+              <div class="svcpill-icon">🎪</div>
+              <div class="svcpill-name">Live Events</div>
+            </div>
+            <div class="svcpill">
+              <div class="svcpill-icon">🎥</div>
+              <div class="svcpill-name">Documentary Films</div>
+            </div>
+            <div class="svcpill">
+              <div class="svcpill-icon">📱</div>
+              <div class="svcpill-name">Social Media</div>
+            </div>
+          </div>
+        </div>
+        <div class="rv rd2">
+          <span class="eye" style="margin-bottom: 18px">How we work</span>
+          <div class="svlist" id="svL">
+            <div class="svi open">
+              <button class="svh" aria-expanded="true" onclick="tSvc(this)"><span class="svnum">01</span
+                ><span class="svname">AD FILMS & BRAND FILMS</span
+                ><span class="svarrow">+</span>
+              </button>
+              <div class="svbody" style="max-height: 200px">
+                <div class="svbi">
+                  <p>
+                    From concept to final cut, we create powerful ad films that
+                    tell your brand's story with emotional depth and cinematic
+                    craft. Each film is built to leave a lasting impression.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="svi">
+              <button class="svh" aria-expanded="false" onclick="tSvc(this)"><span class="svnum">02</span
+                ><span class="svname">CORPORATE VIDEO PRODUCTION</span
+                ><span class="svarrow">+</span>
+              </button>
+              <div class="svbody">
+                <div class="svbi">
+                  <p>
+                    We produce high-quality corporate videos — from internal
+                    communications and training films to event coverage and
+                    brand documentaries that reflect your company culture.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="svi">
+              <button class="svh" aria-expanded="false" onclick="tSvc(this)"><span class="svnum">03</span
+                ><span class="svname">MOVIE PROMOTIONS</span
+                ><span class="svarrow">+</span>
+              </button>
+              <div class="svbody">
+                <div class="svbi">
+                  <p>
+                    Trailers, teasers, promotional content and social campaigns
+                    that build hype and drive audiences to cinemas. We
+                    understand the film industry inside out.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="svi">
+              <button class="svh" aria-expanded="false" onclick="tSvc(this)"><span class="svnum">04</span
+                ><span class="svname">MUSIC VIDEOS & LIVE EVENTS</span
+                ><span class="svarrow">+</span>
+              </button>
+              <div class="svbody">
+                <div class="svbi">
+                  <p>
+                    Visually compelling music videos and full live event
+                    coverage — from multi-camera setups to creative direction
+                    and post-production.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="svi">
+              <button class="svh" aria-expanded="false" onclick="tSvc(this)"><span class="svnum">05</span
+                ><span class="svname">SOCIAL MEDIA CONTENT</span
+                ><span class="svarrow">+</span>
+              </button>
+              <div class="svbody">
+                <div class="svbi">
+                  <p>
+                    Short-form reels, brand films, product videos and ongoing
+                    social content designed for engagement and reach across
+                    Instagram, YouTube and beyond.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section id="clients">
+      <p class="cley rv">Our Story Telling Partners</p>
+      <p class="cl-sub rv rd1">
+        We take pride in working with Pothys Swarna Mahal, Khazana Jewellers,
+        Nalli Silks, Saravana Stores, Tanishq, Infosys, Hitachi, Asian Paints
+        and many more.
+      </p>
+      <div class="lrow">
+        <div class="ltrack">
+          <span class="litem">POTHYS</span
+          ><span class="litem">KALYAN SILKS</span
+          ><span class="litem">JEWEL ONE</span><span class="litem">TANISHQ</span
+          ><span class="litem">TVS EMERALD</span
+          ><span class="litem">JEYACHANDRAN TEXTILES</span
+          ><span class="litem">INDRIYA</span><span class="litem">APPASWAMY</span
+          ><span class="litem">VASAVI GROUP</span
+          ><span class="litem">VITERO</span><span class="litem">POTHYS</span
+          ><span class="litem">KALYAN SILKS</span
+          ><span class="litem">JEWEL ONE</span><span class="litem">TANISHQ</span
+          ><span class="litem">TVS EMERALD</span
+          ><span class="litem">JEYACHANDRAN TEXTILES</span
+          ><span class="litem">INDRIYA</span><span class="litem">APPASWAMY</span
+          ><span class="litem">VASAVI GROUP</span
+          ><span class="litem">VITERO</span>
+        </div>
+      </div>
+      <div class="lrow" style="margin-top: 2px">
+        <div class="ltrack rev">
+          <span class="litem">INFOSYS</span><span class="litem">HITACHI</span
+          ><span class="litem">ASIAN PAINTS</span
+          ><span class="litem">NALLI SILKS</span
+          ><span class="litem">SARAVANA STORES</span
+          ><span class="litem">VERTEX HOMES</span><span class="litem">IVAS</span
+          ><span class="litem">HR CONSTRUCTION</span
+          ><span class="litem">KHAZANA JEWELLERS</span
+          ><span class="litem">APARNA ENTERPRISES</span
+          ><span class="litem">INFOSYS</span><span class="litem">HITACHI</span
+          ><span class="litem">ASIAN PAINTS</span
+          ><span class="litem">NALLI SILKS</span
+          ><span class="litem">SARAVANA STORES</span
+          ><span class="litem">VERTEX HOMES</span><span class="litem">IVAS</span
+          ><span class="litem">HR CONSTRUCTION</span
+          ><span class="litem">KHAZANA JEWELLERS</span
+          ><span class="litem">APARNA ENTERPRISES</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team">
+      <div class="team-header-row rv">
+        <div>
+          <span class="eye">The People Behind The Stories</span>
+          <h2 class="sectitle">MEET<br />THE TEAM</h2>
+        </div>
+        <div class="team-vert" aria-hidden="true">
+          <span>M</span><span>E</span><span>E</span><span>T</span>
+        </div>
+      </div>
+      <div class="team-grid rv rd1">
+        <!-- Chandan Kumar -->
+        <div class="team-card">
+          <div class="team-photo-placeholder">CK</div>
+          <div class="team-info">
+            <div class="team-name">CHANDAN KUMAR</div>
+            <div class="team-role">Founder & Director</div>
+            <p class="team-bio">
+              Chandan Kumar is the Founder & Director of Story Telling Disease,
+              a content creation company. With a diverse background in theatre,
+              film, and media, he brings extensive experience to his work. His
+              credits include fiction writing for
+              <strong style="color: var(--TX); font-weight: 500"
+                >Colors Kannada</strong
+              >, copywriting for
+              <strong style="color: var(--TX); font-weight: 500"
+                >Radio City FM</strong
+              >, and directing numerous successful ads and short films. His
+              recent Kannada short film
+              <em style="color: var(--TX)">"Nam Kaaladalli Hing Irlilla"</em>
+              has garnered recognition at multiple film festivals.
+            </p>
+          </div>
+        </div>
+        <!-- Lokesh Lingaraju -->
+        <div class="team-card">
+          <div class="team-photo-placeholder">LL</div>
+          <div class="team-info">
+            <div class="team-name">LOKESH LINGARAJU</div>
+            <div class="team-role">Technical Head</div>
+            <p class="team-bio">
+              Lokesh, a
+              <strong style="color: var(--TX); font-weight: 500"
+                >St. Joseph's University film graduate</strong
+              >, is a versatile cinematographer and art director. He has
+              contributed his expertise to numerous advertisements, films, short
+              films, and web series, demonstrating a keen eye for compelling
+              visual storytelling. His technical mastery and artistic vision
+              form the visual backbone of every STD production.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why">
+      <div class="rv">
+        <span class="eye">Why Choose STD?</span>
+        <h2 class="sectitle">WHY CHOOSE<br />US?</h2>
+      </div>
+      <div class="why-grid rv rd1">
+        <div class="why-card">
+          <div class="why-num">01</div>
+          <div class="why-title">CREATIVE EXCELLENCE</div>
+          <p class="why-body">
+            A team of passionate storytellers, cinematographers, and marketers
+            dedicated to delivering compelling content that doesn't just inform
+            — it moves people.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">02</div>
+          <div class="why-title">INNOVATIVE APPROACH</div>
+          <p class="why-body">
+            We blend creativity with strategy to craft campaigns that leave a
+            lasting impact. Every project begins with a story worth telling and
+            ends with results worth sharing.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">03</div>
+          <div class="why-title">PROVEN RESULTS</div>
+          <p class="why-body">
+            Our track record of successful projects speaks for itself, with
+            clients returning for our expertise in brand storytelling. From
+            festival-winning films to high-ROI ad campaigns.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+      <div class="ctaglow"></div>
+      <p class="ctag rv">We Are Just a Call Away</p>
+      <h2 class="cttitle rv rd1">
+        TOGETHER LET'S<br />CREATE A <em>Beautiful Story</em>
+      </h2>
+      <p class="ct-sub rv rd2">
+        Infected with the incurable urge to tell stories? So are we. Let's
+        collaborate and build something <span>unforgettable</span> together.
+      </p>
+      <div class="ctrow rv rd3">
+        <a href="tel:8073426636" class="bty">Call Us Now</a>
+        <a href="mailto:stdstorytellingdisease@gmail.com" class="bto"
+          >Send a Mail →</a
+        >
+      </div>
+      <div class="ct-contact rv">
+        <div class="ct-contact-item">
+          <div class="ct-contact-label">Phone</div>
+          <div class="ct-contact-val">
+            <a href="tel:8073426636">80734 26636</a>
+          </div>
+        </div>
+        <div class="ct-contact-item">
+          <div class="ct-contact-label">Email</div>
+          <div
+            class="ct-contact-val"
+            style="font-size: clamp(12px, 1.8vw, 18px)"
+          >
+            <a href="mailto:stdstorytellingdisease@gmail.com"
+              >stdstorytellingdisease@gmail.com</a
+            >
+          </div>
+        </div>
+        <div class="ct-contact-item">
+          <div class="ct-contact-label">Instagram</div>
+          <div class="ct-contact-val">
+            <a href="https://instagram.com/storytellingdisease" target="_blank"
+              >@storytellingdisease</a
+            >
+          </div>
+        </div>
+        <div class="ct-contact-item">
+          <div class="ct-contact-label">Location</div>
+          <div class="ct-contact-val">Bengaluru, India</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="fmain">
+        <div class="fcol">
+          <div class="flogo-wrap">
+            <div class="flogo-badge"><span>STD</span></div>
+            <div class="flogo-text">
+              <div class="fstd">STD</div>
+              <div class="fsub">Story Telling Disease</div>
+            </div>
+          </div>
+          <p class="ftag">
+            "Infected with the incurable urge to tell stories." — Est. 2020,
+            Bengaluru
+          </p>
+          <div class="fsocs">
+            <a
+              class="soc"
+              href="https://instagram.com/storytellingdisease"
+              target="_blank"
+              title="Instagram"
+              >ig</a
+            >
+            <a class="soc" href="#" title="YouTube">yt</a>
+            <a class="soc" href="#" title="Facebook">fb</a>
+            <a class="soc" href="#" title="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="fcol">
+          <div class="fch">Navigate</div>
+          <ul>
+            <li><a href="#work">Our Work</a></li>
+            <li><a href="#films">Original Films</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#team">The Team</a></li>
+            <li><a href="#clients">Our Clients</a></li>
+          </ul>
+        </div>
+        <div class="fcol">
+          <div class="fch">Services</div>
+          <ul>
+            <li><a href="#">Ad Films</a></li>
+            <li><a href="#">Corporate Videos</a></li>
+            <li><a href="#">Music Videos</a></li>
+            <li><a href="#">Documentary Films</a></li>
+            <li><a href="#">Live Events</a></li>
+            <li><a href="#">Social Media Content</a></li>
+          </ul>
+        </div>
+        <div class="fcol">
+          <div class="fch">Get in Touch</div>
+          <div class="faddress">
+            <strong>Bengaluru, Karnataka</strong><br />
+            India<br /><br />
+            <a
+              href="tel:8073426636"
+              style="color: var(--TX); text-decoration: none"
+              >80734 26636</a
+            ><br />
+            <a
+              href="mailto:stdstorytellingdisease@gmail.com"
+              style="color: #888; text-decoration: none; font-size: 11px"
+              >stdstorytellingdisease@gmail.com</a
+            >
+          </div>
+          <div class="fch" style="margin-top: 8px">Follow Our Work</div>
+          <p style="font-size: 12px; color: #888">
+            @storytellingdisease<br />389 posts · Instagram
+          </p>
+        </div>
+      </div>
+      <div class="fbot">
+        <p class="fcopy">
+          © 2026 Story Telling Disease (STD) · Bengaluru · All Rights Reserved
+        </p>
+        <div class="fleg">
+          <a href="#">Privacy Policy</a><a href="#">Terms</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
