@@ -1,6 +1,11 @@
 /* CURSOR */
-const cD = document.getElementById("cDot"), cR = document.getElementById("cRing"), cT = document.getElementById("cTxt");
-let mx = -100, my = -100, rx = -100, ry = -100;
+const cD = document.getElementById("cDot"),
+  cR = document.getElementById("cRing"),
+  cT = document.getElementById("cTxt");
+let mx = -100,
+  my = -100,
+  rx = -100,
+  ry = -100;
 
 function updC() {
   cD.style.transform = "translate(" + (mx - 5) + "px," + (my - 5) + "px)";
@@ -15,21 +20,29 @@ document.addEventListener("mousemove", (e) => {
   updC();
 });
 
-document.addEventListener("touchstart", (e) => {
-  mx = e.touches[0].clientX;
-  my = e.touches[0].clientY;
-  rx = mx;
-  ry = my;
-  cD.style.opacity = "1";
-  cR.style.opacity = "1";
-  updC();
-}, {passive:true});
+document.addEventListener(
+  "touchstart",
+  (e) => {
+    mx = e.touches[0].clientX;
+    my = e.touches[0].clientY;
+    rx = mx;
+    ry = my;
+    cD.style.opacity = "1";
+    cR.style.opacity = "1";
+    updC();
+  },
+  { passive: true },
+);
 
-document.addEventListener("touchmove", (e) => {
-  mx = e.touches[0].clientX;
-  my = e.touches[0].clientY;
-  updC();
-}, {passive:true});
+document.addEventListener(
+  "touchmove",
+  (e) => {
+    mx = e.touches[0].clientX;
+    my = e.touches[0].clientY;
+    updC();
+  },
+  { passive: true },
+);
 
 document.addEventListener("touchend", () => {
   cD.style.opacity = "0";
@@ -93,7 +106,7 @@ const slides = [
     cat: "Ad Film",
     title: "Pothys Swarna Mahal — Jewellery Brand Campaign",
     sub: "Storytelling-led brand film for South India's premier jewellery brand",
-    bg: "url('./assets/img/slide-pothys.jpg') center/cover no-repeat",
+    bgClass: "slide-bg-pothys",
     w: "POTHYS",
     f: "adfilm",
   },
@@ -101,7 +114,7 @@ const slides = [
     cat: "Ad Film",
     title: "Tanishq — Tata Jewellery Campaign",
     sub: "Emotional narrative ad film for India's most trusted jewellery brand",
-    bg: "url('./assets/img/slide-kalyan.jpg') center/cover no-repeat",
+    bgClass: "slide-bg-kalyan",
     w: "TANISHQ",
     f: "adfilm",
   },
@@ -109,7 +122,7 @@ const slides = [
     cat: "Corporate",
     title: "Infosys — Corporate Film",
     sub: "Brand documentary showcasing culture and innovation at Infosys",
-    bg: "url('./assets/img/slide-tanishq.jpg') center/cover no-repeat",
+    bgClass: "slide-bg-tanishq",
     w: "INFOSYS",
     f: "corporate",
   },
@@ -117,7 +130,7 @@ const slides = [
     cat: "Ad Film",
     title: "Kalyan Silks — Wedding Season Campaign",
     sub: "High-emotion brand film for the festive and wedding season",
-    bg: "url('./assets/img/slide-infosys.jpg') center/cover no-repeat",
+    bgClass: "slide-bg-infosys",
     w: "KALYAN SILKS",
     f: "adfilm",
   },
@@ -125,7 +138,7 @@ const slides = [
     cat: "Movie Promo",
     title: "Film Promotion — Kannada Cinema",
     sub: "Promotional content and social strategy for Kannada film releases",
-    bg: "url('./assets/img/slide-hitachi.jpg') center/cover no-repeat",
+    bgClass: "slide-bg-hitachi",
     w: "FILM PROMO",
     f: "promo",
   },
@@ -133,7 +146,7 @@ const slides = [
     cat: "Corporate",
     title: "Hitachi — Corporate Video Production",
     sub: "Global brand, local story — corporate film for Hitachi India",
-    bg: "url('./assets/img/slide-promo.jpg') center/cover no-repeat",
+    bgClass: "slide-bg-promo",
     w: "HITACHI",
     f: "corporate",
   },
@@ -147,7 +160,21 @@ function bldT() {
       s = slides[idx];
     const d = document.createElement("div");
     d.className = "sthumb" + (i === 0 ? " act" : "");
-    d.innerHTML = `<div class="sthumb-img" style="background:${s.bg}"><span style="font-family:'Anton',sans-serif;font-size:24px;color:rgba(255,255,255,.15);letter-spacing:2px;text-align:center;padding:8px">${s.w}</span></div><div class="thlbl">${s.cat}</div><div class="thnum">0${idx + 1}</div>`;
+    const img = document.createElement("div");
+    img.className = "sthumb-img " + s.bgClass;
+    const word = document.createElement("span");
+    word.className = "slide-mark";
+    word.textContent = s.w;
+    img.appendChild(word);
+    const lbl = document.createElement("div");
+    lbl.className = "thlbl";
+    lbl.textContent = s.cat;
+    const num = document.createElement("div");
+    num.className = "thnum";
+    num.textContent = "0" + (idx + 1);
+    d.appendChild(img);
+    d.appendChild(lbl);
+    d.appendChild(num);
     d.addEventListener("click", () => goTo(idx));
     c.appendChild(d);
   });
@@ -155,9 +182,8 @@ function bldT() {
 function goTo(n) {
   cur = ((n % slides.length) + slides.length) % slides.length;
   const s = slides[cur];
-  document.getElementById("sMI").style.background = s.bg;
+  document.getElementById("sMI").className = "smain-img " + s.bgClass;
   document.getElementById("sMW").textContent = s.w;
-  document.getElementById("sMW").style.color = "rgba(255,255,255,.08)";
   document.getElementById("sCC").textContent = s.cat;
   document.getElementById("sCT").textContent = s.title;
   document.getElementById("sCS").textContent = s.sub;
@@ -202,6 +228,3 @@ const obs = new IntersectionObserver(
   { threshold: 0.1 },
 );
 document.querySelectorAll(".rv").forEach((el) => obs.observe(el));
-
-
-
