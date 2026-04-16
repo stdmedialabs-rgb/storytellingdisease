@@ -666,6 +666,16 @@ body:not(.light-mode) .fbot {
 body:not(.light-mode) .svcpill:hover {
   background: rgba(255, 255, 255, 0.05);
 }
+body:not(.light-mode) .svh {
+  background: transparent;
+}
+body:not(.light-mode) .svi.open .svname,
+body:not(.light-mode) .svh:hover .svname {
+  color: #ffffff;
+}
+body:not(.light-mode) .svarrow {
+  color: rgba(255, 255, 255, 0.9);
+}
 body:not(.light-mode) .agrid,
 body:not(.light-mode) .team-grid,
 body:not(.light-mode) .why-grid,
@@ -1257,6 +1267,12 @@ body:not(.light-mode) .fleg a:hover {
   padding: 18px 0;
   cursor: pointer;
   gap: 14px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  appearance: none;
+  -webkit-appearance: none;
 }
 .svnum {
   font-size: 9px;
@@ -1285,6 +1301,10 @@ body:not(.light-mode) .fleg a:hover {
 .svi.open .svname,
 .svh:hover .svname {
   color: var(--TX);
+}
+.svh:focus-visible {
+  outline: 1px solid var(--BOR2);
+  outline-offset: 2px;
 }
 .svbody {
   max-height: 0;
