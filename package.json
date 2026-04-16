@@ -1,0 +1,17 @@
+{
+  "name": "storytellingdisease",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint:js": "eslint script.js theme.js",
+    "lint:css": "stylelint style.css",
+    "lint:html": "prettier --check index.html",
+    "lint": "npm run lint:js && npm run lint:css",
+    "format": "prettier --write index.html style.css script.js theme.js"
+  },
+  "devDependencies": {
+    "eslint": "^9.25.0",
+    "prettier": "^3.5.3",
+    "stylelint": "^16.16.0"
+  }
+}
