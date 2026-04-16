@@ -51,6 +51,21 @@ body {
   cursor: none;
 }
 
+body:not(.light-mode) {
+  background: #080807;
+  color: #f5f2d9;
+}
+
+body:not(.light-mode)::before {
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 28px
+  );
+}
+
 /* ── DIAGONAL STRIPE TEXTURE ── */
 body::before {
   content: "";
@@ -143,11 +158,19 @@ nav {
     background 0.4s,
     padding 0.4s;
 }
+body:not(.light-mode) nav {
+  background: rgba(8, 8, 7, 0.78);
+  backdrop-filter: blur(16px);
+}
 nav.sc {
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(16px);
   padding: 12px 48px;
   border-bottom: 1px solid var(--BOR);
+}
+body:not(.light-mode) nav.sc {
+  background: rgba(8, 8, 7, 0.92);
+  border-bottom: 1px solid rgba(245, 242, 0, 0.14);
 }
 .nlogo {
   display: flex;
@@ -203,6 +226,13 @@ nav.sc {
 .nlinks a:hover {
   color: var(--TX);
 }
+body:not(.light-mode) .nlinks a {
+  color: rgba(245, 242, 0, 0.72);
+  font-weight: 500;
+}
+body:not(.light-mode) .nlinks a:hover {
+  color: #fff9c2;
+}
 .ncta {
   font-size: 10px;
   letter-spacing: 2px;
@@ -217,6 +247,13 @@ nav.sc {
 .ncta:hover {
   background: #333300;
 }
+body:not(.light-mode) .ncta {
+  color: #080807;
+  background: var(--Yb);
+}
+body:not(.light-mode) .ncta:hover {
+  background: #fff06b;
+}
 .hbg {
   display: none;
   flex-direction: column;
@@ -228,6 +265,64 @@ nav.sc {
   width: 22px;
   height: 1px;
   background: var(--TX);
+}
+
+/* THEME TOGGLE */
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  margin-left: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(10, 10, 0, 0.2);
+  background: rgba(255, 255, 255, 0.72);
+  color: #1a1a1a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  transform: translateY(-1px) scale(1.04);
+}
+.theme-toggle-icon {
+  width: 14px;
+  height: 14px;
+  display: block;
+  position: relative;
+}
+body:not(.light-mode) .theme-toggle {
+  color: #f5f200;
+  border-color: rgba(245, 242, 0, 0.45);
+  background: rgba(245, 242, 0, 0.06);
+}
+body:not(.light-mode) .theme-toggle-icon {
+  border-radius: 50%;
+  box-shadow: inset -4px 0 0 0 currentColor;
+  transform: rotate(-18deg);
+}
+body.light-mode .theme-toggle {
+  color: #1a1a1a;
+  border-color: rgba(0, 0, 0, 0.18);
+  background: rgba(255, 255, 255, 0.88);
+}
+body.light-mode .theme-toggle-icon {
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow:
+    0 -9px 0 -6px currentColor,
+    0 9px 0 -6px currentColor,
+    -9px 0 0 -6px currentColor,
+    9px 0 0 -6px currentColor,
+    -6px -6px 0 -6px currentColor,
+    6px -6px 0 -6px currentColor,
+    -6px 6px 0 -6px currentColor,
+    6px 6px 0 -6px currentColor;
 }
 
 /* MOBILE MENU */
@@ -269,7 +364,7 @@ nav.sc {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 48px 72px;
+  padding: 112px 48px 72px;
   position: relative;
   overflow: hidden;
 }
@@ -341,10 +436,10 @@ nav.sc {
   flex-direction: column;
 }
 .hero-agency-name span:first-child {
-  font-size: 10px;
-  letter-spacing: 4px;
+  font-size: 11px;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--MUT);
+  color: rgba(245, 242, 0, 0.72);
 }
 .hero-agency-name strong {
   font-family: var(--AN);
@@ -385,10 +480,11 @@ nav.sc {
   animation: tick 30s linear infinite;
 }
 .htin span {
-  font-size: 11px;
-  letter-spacing: 3px;
+  font-size: 12px;
+  letter-spacing: 3.5px;
   text-transform: uppercase;
-  color: var(--MUT);
+  color: rgba(245, 242, 0, 0.72);
+  font-weight: 500;
   padding: 0 28px;
 }
 .htin .sep {
@@ -409,8 +505,8 @@ nav.sc {
 }
 .hdesc {
   max-width: 360px;
-  font-size: 13px;
-  color: #555;
+  font-size: 14px;
+  color: #4f4b36;
   line-height: 1.9;
 }
 .hdesc strong {
@@ -428,11 +524,37 @@ nav.sc {
   line-height: 1;
 }
 .stl {
-  font-size: 9px;
-  letter-spacing: 2px;
+  font-size: 10px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--MUT);
+  color: rgba(245, 242, 0, 0.72);
   margin-top: 2px;
+}
+body:not(.light-mode) .hero-agency-name strong,
+body:not(.light-mode) .htitle,
+body:not(.light-mode) .htitle em,
+body:not(.light-mode) .hdesc,
+body:not(.light-mode) .hdesc strong,
+body:not(.light-mode) .stn,
+body:not(.light-mode) .sectitle,
+body:not(.light-mode) .eye,
+body:not(.light-mode) .film-title,
+body:not(.light-mode) .team-name,
+body:not(.light-mode) .reel-cap {
+  color: #f5f2d9;
+}
+body:not(.light-mode) .hero-agency-name span:first-child,
+body:not(.light-mode) .nlogo-sub,
+body:not(.light-mode) .stl,
+body:not(.light-mode) .film-kannada,
+body:not(.light-mode) .reel-tag,
+body:not(.light-mode) .fleg a,
+body:not(.light-mode) .team-role,
+body:not(.light-mode) .eye {
+  color: rgba(245, 242, 0, 0.72);
+}
+body:not(.light-mode) .hero-badge-ring {
+  border-color: rgba(245, 242, 0, 0.28);
 }
 
 /* ── REEL ── */
@@ -1698,7 +1820,7 @@ footer {
     display: flex;
   }
   #hero {
-    padding: 0 24px 56px;
+    padding: 96px 24px 56px;
   }
   .hbot {
     flex-direction: column;
