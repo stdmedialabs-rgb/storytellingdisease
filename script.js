@@ -93,7 +93,7 @@ const slides = [
     cat: "Ad Film",
     title: "Pothys Swarna Mahal — Jewellery Brand Campaign",
     sub: "Storytelling-led brand film for South India's premier jewellery brand",
-    bg: "linear-gradient(135deg,#1a1a1a,#333)",
+    bg: "url('./assets/img/slide-pothys.jpg') center/cover no-repeat",
     w: "POTHYS",
     f: "adfilm",
   },
@@ -101,7 +101,7 @@ const slides = [
     cat: "Ad Film",
     title: "Tanishq — Tata Jewellery Campaign",
     sub: "Emotional narrative ad film for India's most trusted jewellery brand",
-    bg: "linear-gradient(135deg,#111,#2a2216)",
+    bg: "url('./assets/img/slide-kalyan.jpg') center/cover no-repeat",
     w: "TANISHQ",
     f: "adfilm",
   },
@@ -109,7 +109,7 @@ const slides = [
     cat: "Corporate",
     title: "Infosys — Corporate Film",
     sub: "Brand documentary showcasing culture and innovation at Infosys",
-    bg: "linear-gradient(135deg,#0d0d0d,#1a1a1a)",
+    bg: "url('./assets/img/slide-tanishq.jpg') center/cover no-repeat",
     w: "INFOSYS",
     f: "corporate",
   },
@@ -117,7 +117,7 @@ const slides = [
     cat: "Ad Film",
     title: "Kalyan Silks — Wedding Season Campaign",
     sub: "High-emotion brand film for the festive and wedding season",
-    bg: "linear-gradient(135deg,#111,#222)",
+    bg: "url('./assets/img/slide-infosys.jpg') center/cover no-repeat",
     w: "KALYAN SILKS",
     f: "adfilm",
   },
@@ -125,7 +125,7 @@ const slides = [
     cat: "Movie Promo",
     title: "Film Promotion — Kannada Cinema",
     sub: "Promotional content and social strategy for Kannada film releases",
-    bg: "linear-gradient(135deg,#0a0a0a,#1e1e14)",
+    bg: "url('./assets/img/slide-hitachi.jpg') center/cover no-repeat",
     w: "FILM PROMO",
     f: "promo",
   },
@@ -133,7 +133,7 @@ const slides = [
     cat: "Corporate",
     title: "Hitachi — Corporate Video Production",
     sub: "Global brand, local story — corporate film for Hitachi India",
-    bg: "linear-gradient(135deg,#0d0d0d,#1a1614)",
+    bg: "url('./assets/img/slide-promo.jpg') center/cover no-repeat",
     w: "HITACHI",
     f: "corporate",
   },
@@ -202,5 +202,6 @@ const obs = new IntersectionObserver(
   { threshold: 0.1 },
 );
 document.querySelectorAll(".rv").forEach((el) => obs.observe(el));
+
 
 
