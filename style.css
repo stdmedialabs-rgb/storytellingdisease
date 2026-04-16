@@ -1138,6 +1138,11 @@ body:not(.light-mode) .fleg a:hover {
   border: 1px solid var(--BOR2);
   padding: 6px 13px;
 }
+body:not(.light-mode) .pill {
+  color: #ffffff;
+  border-color: rgba(245, 242, 0, 0.55);
+  background: rgba(255, 255, 255, 0.04);
+}
 /* About grid */
 .agrid {
   display: grid;
