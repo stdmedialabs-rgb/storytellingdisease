@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="theme.js" defer></script>
   </head>
   <body>
     <div id="cDot"></div>
@@ -73,6 +74,15 @@
         <li><a href="#clients">Clients</a></li>
       </ul>
       <a href="#cta" class="ncta">Get in Touch →</a>
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Toggle dark/light mode"
+        title="Toggle Theme"
+      >
+        🌙
+      </button>
       <div class="hbg" id="hb"><span></span><span></span><span></span></div>
     </nav>
 
@@ -282,13 +292,21 @@
         </p>
       </div>
       <div class="films-grid rv rd1">
-        <!-- Featured: Nam Kaaladalli -->
-        <div class="film-card featured">
+        <!-- Featured: Nam Kaaladalli → YouTube Trailer -->
+        <button
+          class="film-card featured"
+          onclick="
+            window.open('https://www.youtube.com/watch?v=bTZ10MAoHZA', '_blank')
+          "
+          data-cursor="Watch Trailer"
+          type="button"
+          aria-label="Watch Nam Kaaladalli Hing Irlilla trailer on YouTube"
+        >
           <div class="film-card-img">
             <div
               class="film-bg"
               style="
-                background: url(&quot;./assets/img/film-bag.jpg&quot;)
+                background: url(&quot;https://img.youtube.com/vi/bTZ10MAoHZA/maxresdefault.jpg&quot;)
                   center/cover no-repeat;
                 width: 100%;
                 height: 100%;
@@ -296,6 +314,7 @@
               "
             ></div>
             <div class="film-grad"></div>
+            <div class="film-play-btn"></div>
             <div class="film-info">
               <div
                 class="film-title"
@@ -339,7 +358,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </button>
         <!-- Bag -->
         <div class="film-card">
           <div class="film-card-img">
@@ -912,3 +931,4 @@
     <script src="script.js"></script>
   </body>
 </html>
+
