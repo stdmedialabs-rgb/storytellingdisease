@@ -118,7 +118,8 @@ body:not(.light-mode) #cDot {
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.55);
 }
 body:not(.light-mode) #cRing {
-  border-color: rgba(255, 255, 255, 0.6);
+  border-color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14);
 }
 body:not(.light-mode) #cTxt {
   color: #080807;
@@ -596,6 +597,26 @@ body:not(.light-mode) .eye {
 }
 body:not(.light-mode) .hero-badge-ring {
   border-color: rgba(245, 242, 0, 0.28);
+}
+body:not(.light-mode) .stn,
+body:not(.light-mode) .anum,
+body:not(.light-mode) .svnum,
+body:not(.light-mode) .why-num,
+body:not(.light-mode) .thnum,
+body:not(.light-mode) .scnt,
+body:not(.light-mode) .fcopy {
+  color: #ffffff;
+}
+body:not(.light-mode) .stl,
+body:not(.light-mode) .albl,
+body:not(.light-mode) .fch,
+body:not(.light-mode) .team-role,
+body:not(.light-mode) .team-bio,
+body:not(.light-mode) .svbi p,
+body:not(.light-mode) .why-body,
+body:not(.light-mode) .abody,
+body:not(.light-mode) .svleft p {
+  color: rgba(255, 255, 255, 0.72);
 }
 
 /* ── REEL ── */
