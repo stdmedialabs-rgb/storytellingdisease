@@ -986,6 +986,7 @@ nav.sc {
   border: 1.5px solid rgba(245, 242, 0, 0.15);
   border-radius: 6px;
   transition: all 0.3s ease;
+  min-height: 300px;
 }
 .film-card:hover {
   border-color: rgba(245, 242, 0, 0.5);
@@ -993,17 +994,14 @@ nav.sc {
   background: rgba(40, 40, 40, 0.8);
 }
 .film-card-img {
-  aspect-ratio: 2/3;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  position: relative;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    rgba(26, 26, 26, 0.7) 0%,
-    rgba(15, 15, 15, 0.5) 100%
-  );
 }
 .film-bg {
   position: absolute;
@@ -1020,16 +1018,26 @@ nav.sc {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.95) 0%,
-    rgba(0, 0, 0, 0.5) 40%,
-    rgba(0, 0, 0, 0.15) 100%
+    rgba(0, 0, 0, 0.98) 0%,
+    rgba(0, 0, 0, 0.6) 30%,
+    rgba(0, 0, 0, 0.1) 80%,
+    transparent 100%
   );
   z-index: 1;
+  pointer-events: none;
 }
 .film-info {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 3;
   padding: 18px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
 }
 .film-title {
   font-family: var(--FD);
@@ -1061,6 +1069,7 @@ nav.sc {
 }
 .film-card.featured {
   grid-column: span 2;
+  min-height: 380px;
   background: linear-gradient(
     135deg,
     rgba(30, 30, 30, 0.9) 0%,
@@ -1073,8 +1082,7 @@ nav.sc {
   box-shadow: 0 16px 64px rgba(245, 242, 0, 0.2);
 }
 .film-card.featured .film-card-img {
-  aspect-ratio: auto;
-  min-height: 320px;
+  min-height: 380px;
 }
 .film-card.featured .film-title {
   font-size: clamp(20px, 2.8vw, 32px);
@@ -1737,4 +1745,5 @@ footer {
     flex-direction: column;
   }
 }
+
 
