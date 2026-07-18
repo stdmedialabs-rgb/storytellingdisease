@@ -1061,21 +1061,22 @@ body.light-mode #films .films-intro strong {
   font-size: 9px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--page-fg-soft);
+  color: var(--page-fg-muted);
   text-align: center;
   padding: 0 8px;
 }
 .aword {
   font-family: var(--AN);
   font-size: clamp(20px, 3.5vw, 42px);
-  color: rgba(255, 255, 255, 0.08);
+  color: var(--page-fg-strong);
+  opacity: 0.08;
   letter-spacing: 4px;
   text-align: center;
   padding: 8px;
 }
 .ainsta {
   font-size: 10px;
-  color: var(--page-fg-soft);
+  color: var(--page-fg-muted);
   letter-spacing: 2px;
   text-transform: uppercase;
 }
