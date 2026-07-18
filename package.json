@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev": "vite",
     "lint:js": "eslint script.js theme.js",
     "lint:css": "stylelint style.css",
     "lint:html": "prettier --check index.html",
@@ -12,6 +13,7 @@
   "devDependencies": {
     "eslint": "^9.25.0",
     "prettier": "^3.5.3",
-    "stylelint": "^16.16.0"
+    "stylelint": "^16.16.0",
+    "vite": "^8.1.5"
   }
 }

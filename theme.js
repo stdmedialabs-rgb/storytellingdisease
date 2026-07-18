@@ -19,9 +19,7 @@
 
     syncToggle();
     toggle.addEventListener("click", () => {
-      const current = document.body.classList.contains("light-mode")
-        ? "light"
-        : "dark";
+      const current = document.body.classList.contains("light-mode") ? "light" : "dark";
       const next = current === "dark" ? "light" : "dark";
       document.body.classList.toggle("light-mode");
       document.documentElement.setAttribute("data-theme", next);

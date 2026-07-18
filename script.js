@@ -17,7 +17,7 @@ if (prefersReducedMotion) {
 } else {
   function updC() {
     cD.style.transform = "translate(" + (mx - 5) + "px," + (my - 5) + "px)";
-    cT.style.transform = "translate(" + (mx + 14) + "px," + (my - 8) + "px)";
+    cT.style.transform = "translate(" + (mx + 24) + "px," + (my - 8) + "px)";
   }
 
   document.addEventListener("mousemove", (e) => {
@@ -75,9 +75,7 @@ if (prefersReducedMotion) {
   });
 
   document
-    .querySelectorAll(
-      "a,button,.smain,.sthumb,.film-card,.why-card,.svcpill,.team-card",
-    )
+    .querySelectorAll("a,button,.smain,.sthumb,.film-card,.why-card,.svcpill,.team-card")
     .forEach((el) => {
       el.addEventListener("mouseenter", () => {
         cR.style.width = "52px";
@@ -98,14 +96,10 @@ if (prefersReducedMotion) {
 
 /* NAV */
 const nb = document.getElementById("nb");
-window.addEventListener("scroll", () =>
-  nb.classList.toggle("sc", scrollY > 60),
-);
+window.addEventListener("scroll", () => nb.classList.toggle("sc", scrollY > 60));
 document
   .getElementById("hb")
-  .addEventListener("click", () =>
-    document.getElementById("mm").classList.add("open"),
-  );
+  .addEventListener("click", () => document.getElementById("mm").classList.add("open"));
 document.getElementById("mc").addEventListener("click", cm);
 function cm() {
   document.getElementById("mm").classList.remove("open");
@@ -114,52 +108,97 @@ function cm() {
 /* SLIDES */
 const slides = [
   {
-    cat: "Ad Film",
-    title: "Pothys Swarna Mahal — Jewellery Brand Campaign",
-    sub: "Storytelling-led brand film for South India's premier jewellery brand",
-    bgClass: "slide-bg-pothys",
-    w: "POTHYS",
-    f: "adfilm",
+    cat: "Digital Campaign",
+    title: "HR Construction & Interiors — Every Home is a Story!",
+    sub: "A digital campaign for Bengaluru's leading home construction brand featuring Shwetha Prasad and Avanthika Shetty. Built around the feeling of home, not just the structure of it.",
+    bgClass: "slide-bg-hr",
+    w: "HR",
+    f: "social",
+    videos: [
+      {
+        name: "Shwetha Construction",
+        path: "./assets/video/HR construction/Shwetha construction.mp4",
+      },
+      {
+        name: "Avanthika Interior",
+        path: "./assets/video/HR construction/Avanthika Int .mp4",
+      },
+    ],
   },
   {
-    cat: "Ad Film",
-    title: "Tanishq — Tata Jewellery Campaign",
-    sub: "Emotional narrative ad film for India's most trusted jewellery brand",
-    bgClass: "slide-bg-kalyan",
-    w: "TANISHQ",
+    cat: "TV Campaign",
+    title: "Doddmane Masala — A flavour worth remembering!",
+    sub: "A TV campaign for a homegrown masala brand rooted in the warmth of home cooking, featuring Harshika Poonacha. Each film different in story, same in soul.",
+    bgClass: "slide-bg-masala",
+    w: "DODDMANE",
     f: "adfilm",
+    videos: [
+      {
+        name: "Biriyani Masala",
+        path: "./assets/video/DM Masala/BIRIYANI MASALA.mov",
+      },
+      {
+        name: "Chicken Masala",
+        path: "./assets/video/DM Masala/CHICKEN MASALA.mov",
+      },
+      {
+        name: "Kabab Masala",
+        path: "./assets/video/DM Masala/KABAB.mov",
+      },
+      {
+        name: "Sambar Masala",
+        path: "./assets/video/DM Masala/SAMBAR.mov",
+      },
+    ],
   },
   {
-    cat: "Corporate",
-    title: "Infosys — Corporate Film",
-    sub: "Brand documentary showcasing culture and innovation at Infosys",
-    bgClass: "slide-bg-tanishq",
-    w: "INFOSYS",
+    cat: "TV Campaign",
+    title: "Shri Venkateshwara Textiles — Fabric Has a Feel. We wove it into a story!",
+    sub: "A TV campaign for a textile brand rooted in craft and tradition, featuring Chaithra Vasudevan. Films that wore the brand's identity with grace, colour, and quiet pride.",
+    bgClass: "slide-bg-svt",
+    w: "SVT",
+    f: "adfilm",
+    videos: [
+      {
+        name: "30 Seconds TVC",
+        path: "./assets/video/SVT/30 SECONDS.mov",
+      },
+      {
+        name: "20 Seconds TVC",
+        path: "./assets/video/SVT/20 SECONDS.mov",
+      },
+      {
+        name: "15 Seconds TVC",
+        path: "./assets/video/SVT/15 SECONDS.mov",
+      },
+    ],
+  },
+  {
+    cat: "Digital Promo",
+    title:
+      "Acharya Institution & Goutham College — Every course has a future. We gave each one a voice!",
+    sub: "A comprehensive digital promo series for Acharya Institution and Goutham College, covering every course they offer, each with its own identity, tone, and story.",
+    bgClass: "slide-bg-acharya",
+    w: "ACHARYA",
     f: "corporate",
-  },
-  {
-    cat: "Ad Film",
-    title: "Kalyan Silks — Wedding Season Campaign",
-    sub: "High-emotion brand film for the festive and wedding season",
-    bgClass: "slide-bg-infosys",
-    w: "KALYAN SILKS",
-    f: "adfilm",
-  },
-  {
-    cat: "Movie Promo",
-    title: "Film Promotion — Kannada Cinema",
-    sub: "Promotional content and social strategy for Kannada film releases",
-    bgClass: "slide-bg-hitachi",
-    w: "FILM PROMO",
-    f: "promo",
-  },
-  {
-    cat: "Corporate",
-    title: "Hitachi — Corporate Video Production",
-    sub: "Global brand, local story — corporate film for Hitachi India",
-    bgClass: "slide-bg-promo",
-    w: "HITACHI",
-    f: "corporate",
+    videos: [
+      {
+        name: "Acharya Intro Promo",
+        path: "./assets/video/Acharya/AIT_1 .mp4",
+      },
+      {
+        name: "B.E. in Aeronautical Engineering",
+        path: "./assets/video/Acharya/B.E. in Aeronautical Engineering.mp4",
+      },
+      {
+        name: "B.E. in Artificial Intelligence & ML",
+        path: "./assets/video/Acharya/B.E. in Artificial Intelligence & Machine Learning.mp4",
+      },
+      {
+        name: "B.E. in Mechanical Engineering",
+        path: "./assets/video/Acharya/B.E. in Mechanical Engineering.mp4",
+      },
+    ],
   },
 ];
 let cur = 0;
@@ -239,3 +278,93 @@ const obs = new IntersectionObserver(
   { threshold: 0.1 },
 );
 document.querySelectorAll(".rv").forEach((el) => obs.observe(el));
+
+/* HERO TAGLINE ROTATION */
+const taglines = [
+  "Your Brand Has a Story. We Have the Disease",
+  "Cinema For Modern Brands",
+  "Your Brand, Our Story",
+  "You see brands, we see stories",
+  "We tell stories, your brand lives by.",
+];
+let tagIdx = 0;
+const tagEl = document.getElementById("hero-tagline");
+if (tagEl) {
+  setInterval(() => {
+    tagIdx = (tagIdx + 1) % taglines.length;
+    tagEl.style.opacity = 0;
+    setTimeout(() => {
+      tagEl.textContent = taglines[tagIdx];
+      tagEl.style.opacity = 1;
+    }, 400);
+  }, 3500);
+}
+
+/* VIDEO MODAL CONTROLLER */
+const videoModal = document.getElementById("video-modal");
+const modalVideo = document.getElementById("modal-video");
+const modalClose = document.getElementById("modal-close");
+const playlistList = document.getElementById("playlist-list");
+const playlistTitle = document.getElementById("playlist-title");
+const sM = document.getElementById("sM");
+
+if (sM && videoModal && modalVideo) {
+  sM.addEventListener("click", () => {
+    const currentSlide = slides[cur];
+    if (currentSlide && currentSlide.videos && currentSlide.videos.length > 0) {
+      // Set playlist header
+      playlistTitle.textContent = currentSlide.w + " Playlist";
+
+      // Clear current playlist
+      playlistList.innerHTML = "";
+
+      // Populate playlist items
+      currentSlide.videos.forEach((video, index) => {
+        const btn = document.createElement("button");
+        btn.className = "playlist-item" + (index === 0 ? " active" : "");
+        btn.textContent = video.name;
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation(); // Avoid triggering close on clicking inside the modal
+          document
+            .querySelectorAll(".playlist-item")
+            .forEach((el) => el.classList.remove("active"));
+          btn.classList.add("active");
+          modalVideo.src = video.path;
+          modalVideo.play();
+        });
+        playlistList.appendChild(btn);
+      });
+
+      // Load first video
+      modalVideo.src = currentSlide.videos[0].path;
+
+      // Show modal
+      videoModal.classList.add("active");
+      document.body.style.overflow = "hidden"; // Disable scroll
+
+      // Start video playback
+      modalVideo.play();
+    }
+  });
+
+  // Close modal logic
+  const closeModal = () => {
+    videoModal.classList.remove("active");
+    modalVideo.pause();
+    modalVideo.src = "";
+    document.body.style.overflow = ""; // Re-enable scroll
+  };
+
+  if (modalClose) {
+    modalClose.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeModal();
+    });
+  }
+
+  videoModal.addEventListener("click", (e) => {
+    if (e.target === videoModal) {
+      closeModal();
+    }
+  });
+}
