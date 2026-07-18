@@ -549,7 +549,8 @@ body.light-mode #films .films-intro strong {
 }
 .htin {
   display: inline-flex;
-  animation: tick 30s linear infinite;
+  white-space: nowrap;
+  animation: tick-quarter 30s linear infinite;
 }
 .htin span {
   font-size: 12px;
@@ -957,7 +958,8 @@ body.light-mode #films .films-intro strong {
 }
 .min {
   display: inline-flex;
-  animation: tick 18s linear infinite;
+  white-space: nowrap;
+  animation: tick-quarter 18s linear infinite;
 }
 .min span {
   font-family: var(--FD);
@@ -2122,6 +2124,14 @@ footer {
   }
   to {
     transform: translateX(-50%);
+  }
+}
+@keyframes tick-quarter {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-25%);
   }
 }
 @keyframes logoFwd {
