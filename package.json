@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "build": "vite build",
     "lint:js": "eslint script.js theme.js",
     "lint:css": "stylelint style.css",
     "lint:html": "prettier --check index.html",
