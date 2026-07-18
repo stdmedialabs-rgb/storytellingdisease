@@ -135,19 +135,19 @@ const slides = [
     videos: [
       {
         name: "Biriyani Masala",
-        path: "./assets/video/DM Masala/BIRIYANI MASALA.mov",
+        path: "./assets/video/DM Masala/BIRIYANI MASALA.mp4",
       },
       {
         name: "Chicken Masala",
-        path: "./assets/video/DM Masala/CHICKEN MASALA.mov",
+        path: "./assets/video/DM Masala/CHICKEN MASALA.mp4",
       },
       {
         name: "Kabab Masala",
-        path: "./assets/video/DM Masala/KABAB.mov",
+        path: "./assets/video/DM Masala/KABAB.mp4",
       },
       {
         name: "Sambar Masala",
-        path: "./assets/video/DM Masala/SAMBAR.mov",
+        path: "./assets/video/DM Masala/SAMBAR.mp4",
       },
     ],
   },
@@ -161,15 +161,15 @@ const slides = [
     videos: [
       {
         name: "30 Seconds TVC",
-        path: "./assets/video/SVT/30 SECONDS.mov",
+        path: "./assets/video/SVT/30 SECONDS.mp4",
       },
       {
         name: "20 Seconds TVC",
-        path: "./assets/video/SVT/20 SECONDS.mov",
+        path: "./assets/video/SVT/20 SECONDS.mp4",
       },
       {
         name: "15 Seconds TVC",
-        path: "./assets/video/SVT/15 SECONDS.mov",
+        path: "./assets/video/SVT/15 SECONDS.mp4",
       },
     ],
   },
