@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <circle cx="16" cy="16" r="16" fill="#080807" />
+  <circle cx="16" cy="12" r="5" fill="#f5f200" />
+  <rect x="4" y="20" width="24" height="7" rx="2" fill="#f5f200" />
+  <text x="16" y="25" text-anchor="middle" font-family="'Anton', sans-serif" font-size="5" font-weight="bold" fill="#0a0a00" letter-spacing="0.5">STD</text>
+</svg>
