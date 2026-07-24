@@ -1956,9 +1956,6 @@ body.light-mode .film-card:hover {
   letter-spacing: 2px;
   color: #fff;
 }
-.ct-contact-val--small {
-  font-size: clamp(12px, 1.8vw, 18px);
-}
 .ct-contact-val a {
   color: inherit;
   text-decoration: none;
