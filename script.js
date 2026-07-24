@@ -75,7 +75,9 @@ if (prefersReducedMotion) {
   });
 
   document
-    .querySelectorAll("a,button,.smain,.sthumb,.film-card,.why-card,.svcpill,.team-card")
+    .querySelectorAll(
+      "a,button,.smain,.sthumb,.film-card,.why-card,.svcpill,.social-card",
+    )
     .forEach((el) => {
       el.addEventListener("mouseenter", () => {
         cR.style.width = "52px";
@@ -104,6 +106,7 @@ document.getElementById("mc").addEventListener("click", cm);
 function cm() {
   document.getElementById("mm").classList.remove("open");
 }
+window.cm = cm;
 
 /* SLIDES */
 const slides = [
@@ -268,6 +271,7 @@ function tSvc(h) {
     h.setAttribute("aria-expanded", "true");
   }
 }
+window.tSvc = tSvc;
 
 /* SCROLL REVEAL */
 const obs = new IntersectionObserver(
@@ -311,7 +315,7 @@ const sM = document.getElementById("sM");
 if (sM && videoModal && modalVideo) {
   sM.addEventListener("click", () => {
     const currentSlide = slides[cur];
-    if (currentSlide && currentSlide.videos && currentSlide.videos.length > 0) {
+    if (currentSlide?.videos?.length > 0) {
       // Set playlist header
       playlistTitle.textContent = currentSlide.w + " Playlist";
 
@@ -367,4 +371,29 @@ if (sM && videoModal && modalVideo) {
       closeModal();
     }
   });
+}
+
+/* REEL VIDEO PROGRESS BAR & SEEKING */
+const reelVid = document.getElementById("reel-video");
+const reelBar = document.getElementById("reel-progress-bar");
+const reelWrap = document.getElementById("reel-progress-wrap");
+
+if (reelVid && reelBar) {
+  reelVid.addEventListener("timeupdate", () => {
+    if (reelVid.duration) {
+      const pct = (reelVid.currentTime / reelVid.duration) * 100;
+      reelBar.style.width = pct + "%";
+    }
+  });
+
+  if (reelWrap) {
+    reelWrap.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const rect = reelWrap.getBoundingClientRect();
+      const pos = (e.clientX - rect.left) / rect.width;
+      if (reelVid.duration) {
+        reelVid.currentTime = pos * reelVid.duration;
+      }
+    });
+  }
 }
