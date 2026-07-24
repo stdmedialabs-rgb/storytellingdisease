@@ -378,6 +378,7 @@ if (sM && videoModal && modalVideo) {
 const reelVid = document.getElementById("reel-video");
 const reelBar = document.getElementById("reel-progress-bar");
 const reelWrap = document.getElementById("reel-progress-wrap");
+const reelSec = document.getElementById("reel");
 
 if (reelVid && reelBar) {
   reelVid.addEventListener("timeupdate", () => {
@@ -394,6 +395,14 @@ if (reelVid && reelBar) {
       const pos = (e.clientX - rect.left) / rect.width;
       if (reelVid.duration) {
         reelVid.currentTime = pos * reelVid.duration;
+      }
+    });
+  }
+
+  if (reelSec) {
+    reelSec.addEventListener("click", () => {
+      if (reelVid.paused) {
+        reelVid.play().catch(() => {});
       }
     });
   }

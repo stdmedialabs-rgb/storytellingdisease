@@ -1080,11 +1080,22 @@ body.light-mode #films .films-intro strong {
     background 0.3s ease,
     box-shadow 0.3s ease;
 }
-.social-card-in:hover {
-  transform: translateY(-3px);
-  border-color: var(--border-strong);
-  background: var(--surface-4);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+@media (hover: hover) and (pointer: fine) {
+  .social-card-in:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-strong);
+    background: var(--surface-4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+  .social-card-in:hover .social-card-icon-in {
+    transform: scale(1.1);
+    background: var(--Yb);
+    color: var(--TX);
+    border-color: var(--Yb);
+  }
+  .social-card-in:hover .social-card-arrow-in {
+    transform: translate(3px, -3px);
+  }
 }
 .social-card-icon-in {
   width: 42px;
@@ -1102,12 +1113,6 @@ body.light-mode #films .films-intro strong {
     background 0.3s ease,
     border-color 0.3s ease,
     color 0.3s ease;
-}
-.social-card-in:hover .social-card-icon-in {
-  transform: scale(1.1);
-  background: var(--Yb);
-  color: var(--TX);
-  border-color: var(--Yb);
 }
 .social-card-icon-in svg {
   width: 20px;
@@ -1140,9 +1145,6 @@ body.light-mode #films .films-intro strong {
   color: var(--Yb);
   transition: transform 0.3s ease;
   flex-shrink: 0;
-}
-.social-card-in:hover .social-card-arrow-in {
-  transform: translate(3px, -3px);
 }
 /* About grid */
 .agrid {
