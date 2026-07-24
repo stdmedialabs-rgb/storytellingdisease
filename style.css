@@ -835,7 +835,7 @@ body.light-mode #films .films-intro strong {
   background: url("./assets/img/slide-masala.jpg") center/cover no-repeat;
 }
 .slide-bg-svt {
-  background: url("./assets/img/IMG_7214.JPG") center/cover no-repeat;
+  background: url("./assets/img/IMG_7214.JPG") center 10% / cover no-repeat;
 }
 .slide-bg-acharya {
   background: url("./assets/img/slide-acharya.jpg") center/cover no-repeat;
