@@ -116,7 +116,7 @@ const slides = [
     sub: "A digital campaign for Bengaluru's leading home construction brand featuring Shwetha Prasad and Avanthika Shetty. Built around the feeling of home, not just the structure of it.",
     bgClass: "slide-bg-hr",
     w: "HR",
-    f: "social",
+    f: "digital",
     videos: [
       {
         name: "Shwetha Construction",
@@ -134,7 +134,7 @@ const slides = [
     sub: "A TV campaign for a homegrown masala brand rooted in the warmth of home cooking, featuring Harshika Poonacha. Each film different in story, same in soul.",
     bgClass: "slide-bg-masala",
     w: "DODDMANE",
-    f: "adfilm",
+    f: "tv",
     videos: [
       {
         name: "Biriyani Masala",
@@ -160,7 +160,7 @@ const slides = [
     sub: "A TV campaign for a textile brand rooted in craft and tradition, featuring Chaithra Vasudevan. Films that wore the brand's identity with grace, colour, and quiet pride.",
     bgClass: "slide-bg-svt",
     w: "SVT",
-    f: "adfilm",
+    f: "tv",
     videos: [
       {
         name: "30 Seconds TVC",
@@ -183,7 +183,7 @@ const slides = [
     sub: "A comprehensive digital promo series for Acharya Institution and Goutham College, covering every course they offer, each with its own identity, tone, and story.",
     bgClass: "slide-bg-acharya",
     w: "ACHARYA",
-    f: "corporate",
+    f: "promo",
     videos: [
       {
         name: "Acharya Intro Promo",
@@ -241,6 +241,7 @@ function goTo(n) {
   document.getElementById("sCT").textContent = s.title;
   document.getElementById("sCS").textContent = s.sub;
   document.getElementById("slC").textContent = String(cur + 1).padStart(2, "0");
+  document.getElementById("slT").textContent = String(slides.length).padStart(2, "0");
   bldT();
 }
 bldT();
