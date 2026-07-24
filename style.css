@@ -987,31 +987,18 @@ body.light-mode #films .films-intro strong {
 
 /* ── ABOUT ── */
 #about {
-  padding: 72px 48px;
+  padding: 80px 48px;
   border-top: 1px solid var(--BOR);
 }
-.about-bento-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-.about-bento-header {
-  position: relative;
-}
-.about-bento-main {
+.about-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 32px;
-  align-items: stretch;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: start;
 }
-.about-story-box {
+.about-story-col {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 32px 36px;
-  background: var(--surface-1);
-  border: 1px solid var(--border-soft);
-  border-radius: 8px;
 }
 .abig {
   font-family: var(--AN);
@@ -1025,7 +1012,7 @@ body.light-mode #films .films-intro strong {
 .aquote {
   border-left: 3px solid var(--Yb);
   padding-left: 20px;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
 }
 .aquote p {
   font-family: var(--FS);
@@ -1038,7 +1025,7 @@ body.light-mode #films .films-intro strong {
   font-size: 13px;
   color: var(--page-fg-muted);
   line-height: 1.85;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .abody strong {
   color: var(--page-fg-strong);
@@ -1060,39 +1047,35 @@ body.light-mode #films .films-intro strong {
   padding: 6px 13px;
 }
 
-/* Integrated About Socials Row */
-.about-socials-row {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding-top: 24px;
+/* Prominent Social Synapses Section Below */
+.about-socials-wrap {
+  margin-top: 48px;
+  padding-top: 36px;
   border-top: 1px solid var(--border-soft);
 }
-.about-socials-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.about-socials-header {
+  margin-bottom: 20px;
 }
 .about-socials-title {
   font-family: var(--FD);
-  font-size: 18px;
-  letter-spacing: 2.5px;
+  font-size: clamp(22px, 3vw, 30px);
+  letter-spacing: 3px;
   color: var(--page-fg-strong);
 }
 .about-socials-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 20px;
 }
 .social-card {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 16px 18px;
+  gap: 16px;
+  padding: 20px 22px;
   background: var(--surface-1);
   border: 1px solid var(--border-soft);
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
   transition:
     transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     border-color 0.3s ease,
@@ -1100,14 +1083,14 @@ body.light-mode #films .films-intro strong {
     box-shadow 0.3s ease;
 }
 .social-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--border-strong);
   background: var(--surface-4);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 .social-card-icon {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   background: var(--surface-2);
   border-radius: 50%;
   display: flex;
@@ -1123,25 +1106,25 @@ body.light-mode #films .films-intro strong {
     color 0.3s ease;
 }
 .social-card:hover .social-card-icon {
-  transform: scale(1.08);
+  transform: scale(1.1);
   background: var(--Yb);
   color: var(--TX);
   border-color: var(--Yb);
 }
 .social-card-icon svg {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 .social-card-info {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   min-width: 0;
 }
 .social-card-name {
   font-family: var(--FD);
-  font-size: 15px;
-  letter-spacing: 1.5px;
+  font-size: 16px;
+  letter-spacing: 2px;
   color: var(--page-fg-strong);
   line-height: 1.1;
 }
@@ -1155,13 +1138,13 @@ body.light-mode #films .films-intro strong {
 }
 .social-card-arrow {
   margin-left: auto;
-  font-size: 16px;
+  font-size: 18px;
   color: var(--Yb);
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
 .social-card:hover .social-card-arrow {
-  transform: translate(3px, -3px);
+  transform: translate(4px, -4px);
 }
 /* About grid */
 .agrid {
@@ -2427,9 +2410,9 @@ footer {
   #about {
     padding: 60px 24px;
   }
-  .about-bento-main {
+  .about-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 40px;
   }
   .about-socials-grid {
     grid-template-columns: repeat(2, 1fr);
