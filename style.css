@@ -987,41 +987,50 @@ body.light-mode #films .films-intro strong {
 
 /* ── ABOUT ── */
 #about {
-  padding: 100px 48px;
+  padding: 80px 48px;
   border-top: 1px solid var(--BOR);
 }
 .about-top-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
-  align-items: center;
+  gap: 52px;
+  align-items: start;
+}
+.about-story-col {
+  display: flex;
+  flex-direction: column;
+}
+.about-dashboard-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 .abig {
   font-family: var(--AN);
-  font-size: clamp(80px, 12vw, 160px);
+  font-size: clamp(80px, 11vw, 150px);
   color: var(--watermark);
   letter-spacing: -2px;
   line-height: 1;
   user-select: none;
-  margin-bottom: -32px;
+  margin-bottom: -28px;
 }
 .aquote {
   border-left: 3px solid var(--Yb);
-  padding-left: 22px;
-  margin-bottom: 28px;
+  padding-left: 20px;
+  margin-bottom: 24px;
 }
 .aquote p {
   font-family: var(--FS);
   font-style: italic;
-  font-size: clamp(16px, 2vw, 24px);
+  font-size: clamp(16px, 1.8vw, 22px);
   color: var(--page-fg-strong);
-  line-height: 1.45;
+  line-height: 1.4;
 }
 .abody {
   font-size: 13px;
   color: var(--page-fg-muted);
-  line-height: 1.9;
-  margin-bottom: 14px;
+  line-height: 1.85;
+  margin-bottom: 12px;
 }
 .abody strong {
   color: var(--page-fg-strong);
@@ -1031,7 +1040,7 @@ body.light-mode #films .films-intro strong {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 22px;
+  margin-top: 18px;
 }
 .pill {
   font-size: 9px;
@@ -1043,31 +1052,30 @@ body.light-mode #films .films-intro strong {
   padding: 6px 13px;
 }
 
-/* About Socials */
-.about-socials {
-  margin-top: 56px;
-  padding-top: 36px;
+/* Integrated About Socials Block */
+.about-socials-block {
+  padding-top: 20px;
   border-top: 1px solid var(--border-soft);
 }
 .about-socials-header {
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 .about-socials-title {
   font-family: var(--FD);
-  font-size: clamp(22px, 3vw, 32px);
-  letter-spacing: 3px;
+  font-size: clamp(18px, 2.2vw, 24px);
+  letter-spacing: 2.5px;
   color: var(--page-fg-strong);
 }
 .about-socials-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 .social-card {
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 22px 24px;
+  gap: 14px;
+  padding: 14px 16px;
   background: var(--surface-1);
   border: 1px solid var(--border-soft);
   text-decoration: none;
@@ -1079,14 +1087,14 @@ body.light-mode #films .films-intro strong {
     box-shadow 0.3s ease;
 }
 .social-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: var(--border-strong);
   background: var(--surface-4);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 .social-card-icon {
-  width: 52px;
-  height: 52px;
+  width: 42px;
+  height: 42px;
   background: var(--surface-2);
   border-radius: 50%;
   display: flex;
@@ -1102,30 +1110,30 @@ body.light-mode #films .films-intro strong {
     color 0.3s ease;
 }
 .social-card:hover .social-card-icon {
-  transform: scale(1.1);
+  transform: scale(1.08);
   background: var(--Yb);
   color: var(--TX);
   border-color: var(--Yb);
 }
 .social-card-icon svg {
-  width: 26px;
-  height: 26px;
+  width: 20px;
+  height: 20px;
 }
 .social-card-info {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
   min-width: 0;
 }
 .social-card-name {
   font-family: var(--FD);
-  font-size: 18px;
-  letter-spacing: 2px;
+  font-size: 15px;
+  letter-spacing: 1.5px;
   color: var(--page-fg-strong);
   line-height: 1.1;
 }
 .social-card-handle {
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.5px;
   color: var(--page-fg-muted);
   white-space: nowrap;
@@ -1134,13 +1142,13 @@ body.light-mode #films .films-intro strong {
 }
 .social-card-arrow {
   margin-left: auto;
-  font-size: 20px;
+  font-size: 16px;
   color: var(--Yb);
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
 .social-card:hover .social-card-arrow {
-  transform: translate(4px, -4px);
+  transform: translate(3px, -3px);
 }
 /* About grid */
 .agrid {
