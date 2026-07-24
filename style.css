@@ -1047,50 +1047,48 @@ body.light-mode #films .films-intro strong {
   padding: 6px 13px;
 }
 
-/* Prominent Social Synapses Section Below */
-.about-socials-wrap {
-  margin-top: 48px;
-  padding-top: 36px;
+/* Integrated Social Synapses under pills */
+.about-socials-inline {
+  margin-top: 32px;
+  padding-top: 24px;
   border-top: 1px solid var(--border-soft);
 }
-.about-socials-header {
-  margin-bottom: 20px;
-}
-.about-socials-title {
+.about-socials-title-sm {
   font-family: var(--FD);
-  font-size: clamp(22px, 3vw, 30px);
+  font-size: 13px;
   letter-spacing: 3px;
   color: var(--page-fg-strong);
+  margin-bottom: 16px;
 }
-.about-socials-grid {
+.about-socials-grid-in {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
-.social-card {
+.social-card-in {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 20px 22px;
+  gap: 14px;
+  padding: 16px 18px;
   background: var(--surface-1);
   border: 1px solid var(--border-soft);
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 6px;
   transition:
     transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     border-color 0.3s ease,
     background 0.3s ease,
     box-shadow 0.3s ease;
 }
-.social-card:hover {
-  transform: translateY(-4px);
+.social-card-in:hover {
+  transform: translateY(-3px);
   border-color: var(--border-strong);
   background: var(--surface-4);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
-.social-card-icon {
-  width: 48px;
-  height: 48px;
+.social-card-icon-in {
+  width: 42px;
+  height: 42px;
   background: var(--surface-2);
   border-radius: 50%;
   display: flex;
@@ -1105,30 +1103,30 @@ body.light-mode #films .films-intro strong {
     border-color 0.3s ease,
     color 0.3s ease;
 }
-.social-card:hover .social-card-icon {
+.social-card-in:hover .social-card-icon-in {
   transform: scale(1.1);
   background: var(--Yb);
   color: var(--TX);
   border-color: var(--Yb);
 }
-.social-card-icon svg {
-  width: 24px;
-  height: 24px;
+.social-card-icon-in svg {
+  width: 20px;
+  height: 20px;
 }
-.social-card-info {
+.social-card-info-in {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
   min-width: 0;
 }
-.social-card-name {
+.social-card-name-in {
   font-family: var(--FD);
-  font-size: 16px;
-  letter-spacing: 2px;
+  font-size: 15px;
+  letter-spacing: 1.5px;
   color: var(--page-fg-strong);
   line-height: 1.1;
 }
-.social-card-handle {
+.social-card-handle-in {
   font-size: 11px;
   letter-spacing: 0.5px;
   color: var(--page-fg-muted);
@@ -1136,15 +1134,15 @@ body.light-mode #films .films-intro strong {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.social-card-arrow {
+.social-card-arrow-in {
   margin-left: auto;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--Yb);
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
-.social-card:hover .social-card-arrow {
-  transform: translate(4px, -4px);
+.social-card-in:hover .social-card-arrow-in {
+  transform: translate(3px, -3px);
 }
 /* About grid */
 .agrid {
@@ -2414,8 +2412,13 @@ footer {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .about-socials-grid {
+  .about-socials-grid-in {
     grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 580px) {
+    .about-socials-grid-in {
+      grid-template-columns: 1fr;
+    }
   }
   .svgrid {
     grid-template-columns: 1fr;

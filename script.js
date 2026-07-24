@@ -76,7 +76,7 @@ if (prefersReducedMotion) {
 
   document
     .querySelectorAll(
-      "a,button,.smain,.sthumb,.film-card,.why-card,.svcpill,.social-card",
+      "a,button,.smain,.sthumb,.film-card,.why-card,.svcpill,.social-card,.social-card-in",
     )
     .forEach((el) => {
       el.addEventListener("mouseenter", () => {
