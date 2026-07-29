@@ -257,22 +257,7 @@ document.querySelectorAll(".fb").forEach((b) =>
   }),
 );
 
-/* SERVICES ACCORDION */
-function tSvc(h) {
-  const i = h.parentElement,
-    o = i.classList.contains("open");
-  document.querySelectorAll(".svi").forEach((x) => {
-    x.classList.remove("open");
-    x.querySelector(".svbody").style.maxHeight = "0";
-    x.querySelector(".svh").setAttribute("aria-expanded", "false");
-  });
-  if (!o) {
-    i.classList.add("open");
-    i.querySelector(".svbody").style.maxHeight = "200px";
-    h.setAttribute("aria-expanded", "true");
-  }
-}
-window.tSvc = tSvc;
+/* SERVICES SECTION */
 
 /* SCROLL REVEAL */
 const obs = new IntersectionObserver(
