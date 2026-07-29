@@ -656,6 +656,55 @@ body.light-mode #films .films-intro strong {
   background: rgba(0, 0, 0, 0.42);
   z-index: 1;
 }
+/* REEL AUDIO TOGGLE BUTTON */
+.reel-audio-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(8, 8, 7, 0.75);
+  border: 1px solid var(--border-soft);
+  backdrop-filter: blur(12px);
+  border-radius: 999px;
+  color: var(--page-fg-strong);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.reel-audio-btn:hover {
+  background: var(--surface-1);
+  border-color: var(--Yb);
+  transform: translateY(-2px) scale(1.04);
+}
+.reel-audio-btn .audio-icon {
+  width: 18px;
+  height: 18px;
+  stroke: var(--Yb);
+}
+.reel-audio-btn .audio-unmuted {
+  display: none;
+}
+.reel-audio-btn.unmuted {
+  border-color: var(--Yb);
+  background: rgba(245, 242, 0, 0.18);
+}
+.reel-audio-btn.unmuted .audio-muted {
+  display: none;
+}
+.reel-audio-btn.unmuted .audio-unmuted {
+  display: block;
+}
+.audio-lbl {
+  font-family: var(--FB);
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--page-fg-strong);
+}
 .reel-bg-txt {
   position: relative;
   z-index: 2;

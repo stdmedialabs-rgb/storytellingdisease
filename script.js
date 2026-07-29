@@ -381,9 +381,36 @@ if (reelVid && reelBar) {
     });
   }
 
+  const reelAudioBtn = document.getElementById("reel-audio-btn");
+  if (reelAudioBtn) {
+    const updateAudioUI = () => {
+      const isMuted = reelVid.muted;
+      reelAudioBtn.classList.toggle("unmuted", !isMuted);
+      reelAudioBtn.setAttribute("title", isMuted ? "Unmute audio" : "Mute audio");
+      reelAudioBtn.setAttribute("aria-label", isMuted ? "Unmute audio" : "Mute audio");
+      const lbl = reelAudioBtn.querySelector(".audio-lbl");
+      if (lbl) {
+        lbl.textContent = isMuted ? "SOUND OFF" : "SOUND ON";
+      }
+    };
+
+    reelAudioBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      reelVid.muted = !reelVid.muted;
+      updateAudioUI();
+      if (!reelVid.muted && reelVid.paused) {
+        reelVid.play().catch(() => {});
+      }
+    });
+
+    updateAudioUI();
+  }
+
   const reelContainer = document.getElementById("reel");
   if (reelContainer) {
-    reelContainer.addEventListener("click", () => {
+    reelContainer.addEventListener("click", (e) => {
+      if (e.target.closest("#reel-audio-btn") || e.target.closest("#reel-progress-wrap"))
+        return;
       if (reelVid.paused) {
         reelVid.play().catch(() => {});
       }
