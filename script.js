@@ -288,9 +288,7 @@ document.querySelectorAll(".rv").forEach((el) => obs.observe(el));
 const taglines = [
   "Your Brand Has a Story. We Have the Disease",
   "Cinema For Modern Brands",
-  "Your Brand, Our Story",
-  "You see brands, we see stories",
-  "We tell stories, your brand lives by.",
+  "We Craft Soulful Narratives",
 ];
 let tagIdx = 0;
 const tagEl = document.getElementById("hero-tagline");
