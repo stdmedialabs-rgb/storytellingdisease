@@ -388,10 +388,6 @@ if (reelVid && reelBar) {
       reelAudioBtn.classList.toggle("unmuted", !isMuted);
       reelAudioBtn.setAttribute("title", isMuted ? "Unmute audio" : "Mute audio");
       reelAudioBtn.setAttribute("aria-label", isMuted ? "Unmute audio" : "Mute audio");
-      const lbl = reelAudioBtn.querySelector(".audio-lbl");
-      if (lbl) {
-        lbl.textContent = isMuted ? "SOUND OFF" : "SOUND ON";
-      }
     };
 
     reelAudioBtn.addEventListener("click", (e) => {
