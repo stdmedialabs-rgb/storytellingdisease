@@ -620,6 +620,138 @@ body.light-mode #films .films-intro strong {
   color: var(--Yb);
 }
 
+/* HERO WIDE-SCREEN ART (LEFT AUDIO WAVEFORM & RIGHT FILM APERTURE) */
+.hero-waveform-left,
+.hero-aperture-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.65;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 0.4s ease;
+}
+
+.hero-waveform-left {
+  left: 48px;
+}
+
+.hero-aperture-right {
+  right: 48px;
+}
+
+.hero-hud-label {
+  font-family: var(--FB);
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--page-fg-soft);
+  text-transform: uppercase;
+}
+
+/* LEFT WAVEFORM EQUALIZER BARS */
+.eq-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 48px;
+}
+
+.eq-bars .bar {
+  width: 3px;
+  background: var(--Yb);
+  border-radius: 999px;
+  animation: waveEqualizer 1.4s ease-in-out infinite alternate;
+}
+
+.eq-bars .b1 {
+  height: 35%;
+  animation-delay: 0.1s;
+}
+.eq-bars .b2 {
+  height: 80%;
+  animation-delay: 0.3s;
+}
+.eq-bars .b3 {
+  height: 50%;
+  animation-delay: 0.5s;
+}
+.eq-bars .b4 {
+  height: 95%;
+  animation-delay: 0.2s;
+}
+.eq-bars .b5 {
+  height: 60%;
+  animation-delay: 0.6s;
+}
+.eq-bars .b6 {
+  height: 90%;
+  animation-delay: 0.4s;
+}
+.eq-bars .b7 {
+  height: 40%;
+  animation-delay: 0.7s;
+}
+.eq-bars .b8 {
+  height: 75%;
+  animation-delay: 0.15s;
+}
+
+@keyframes waveEqualizer {
+  0% {
+    transform: scaleY(0.3);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scaleY(1.1);
+    opacity: 1;
+  }
+}
+
+/* RIGHT APERTURE ART */
+.aperture-svg {
+  width: 64px;
+  height: 64px;
+  color: var(--Yb);
+}
+
+.ap-outer-ring {
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+  fill: none;
+  transform-origin: center;
+  animation: spin 20s linear infinite;
+}
+
+.ap-inner-ring {
+  stroke: var(--Yb);
+  stroke-width: 1;
+  fill: none;
+  opacity: 0.5;
+}
+
+.ap-blade {
+  fill: var(--Yb);
+  opacity: 0.15;
+  transition: opacity 0.3s ease;
+}
+
+.ap-core {
+  fill: var(--Yb);
+  opacity: 0.6;
+}
+
+@media (max-width: 1120px) {
+  .hero-waveform-left,
+  .hero-aperture-right {
+    display: none;
+  }
+}
+
 @keyframes mouseWheel {
   0% {
     opacity: 1;
