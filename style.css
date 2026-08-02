@@ -2817,40 +2817,47 @@ footer {
     grid-template-columns: 1fr;
   }
   #hero {
+    align-items: flex-start;
+    justify-content: flex-end;
+    text-align: left;
     padding: 100px 20px 40px;
     min-height: auto;
   }
+  .hero-logo-wrap {
+    margin: 0 0 20px 0;
+    justify-content: flex-start;
+  }
   .htitle {
+    text-align: left;
+    margin: 0;
     font-size: clamp(36px, 9.5vw, 64px);
     line-height: 0.95;
   }
   .hero-tagline-wrap {
+    text-align: left;
     margin-top: 16px;
   }
   #hero-tagline {
     font-size: 11px;
     letter-spacing: 2px;
   }
+  .hbot {
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    margin-top: 24px;
+  }
   .hdesc {
+    text-align: left;
+    margin: 0;
     font-size: 13px;
     line-height: 1.75;
-    padding: 0 4px;
+    padding: 0;
   }
   .hero-scroll-cue {
+    align-self: center;
     margin-top: 24px;
     gap: 6px;
-  }
-  .scroll-mouse {
-    width: 20px;
-    height: 32px;
-  }
-  .scroll-wheel {
-    width: 3px;
-    height: 6px;
-  }
-  .scroll-txt {
-    font-size: 9px;
-    letter-spacing: 2px;
   }
   .reel-audio-btn {
     bottom: 16px;
