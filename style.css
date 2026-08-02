@@ -1967,94 +1967,79 @@ body.light-mode .film-card:hover {
   line-height: 0.95;
 }
 
-/* ── CLIENTS ── */
+/* ── CLIENT PARTNERS WHITE CARD SHOWCASE ── */
 #clients {
-  padding: 60px 0;
+  padding: 80px 48px;
   border-top: 1px solid var(--BOR);
   overflow: hidden;
 }
+.clients-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
 .cley {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--page-fg-soft);
-  text-align: center;
+  color: var(--Yb);
+  font-weight: 500;
   margin-bottom: 10px;
 }
 .cl-sub {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--page-fg-muted);
   text-align: center;
-  max-width: 600px;
-  margin: 0 auto 32px;
+  max-width: 640px;
+  margin: 0 auto;
   line-height: 1.7;
 }
-.lrow {
-  overflow: hidden;
-  border-top: 1px solid var(--BOR);
-  border-bottom: 1px solid var(--BOR);
-  padding: 11px 0;
-  margin-bottom: 2px;
-}
-.lrow-spaced {
-  margin-top: 2px;
-}
-.ltrack {
-  display: inline-flex;
-  white-space: nowrap;
-  animation: logoFwd 20s linear infinite;
-}
-.ltrack.rev {
-  animation: logoRev 22s linear infinite;
-}
-.litem {
-  padding: 7px 36px;
-  font-family: var(--FD);
-  font-size: 14px;
-  letter-spacing: 3px;
-  color: var(--page-fg-soft);
-  border-right: 1px solid var(--border-soft);
-  transition: color 0.3s;
-  cursor: default;
-}
-.litem:hover {
-  color: var(--page-fg-strong);
+
+.partners-white-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 48px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
-/* CLIENT PARTNER LOGO GRID */
-.client-logos-showcase {
-  display: flex;
-  justify-content: center;
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 36px 28px;
   align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  padding: 24px;
-  background: var(--surface-1);
-  border: 1px solid var(--border-soft);
-  border-radius: 8px;
+  justify-items: center;
 }
-.client-logo-item {
+
+.partner-logo-item {
+  width: 100%;
   height: 60px;
-  padding: 10px 20px;
-  background: #ffffff;
-  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 8px;
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    opacity 0.3s ease;
 }
-.client-logo-item:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 24px rgba(245, 242, 0, 0.3);
-}
-.client-logo-item img {
-  max-height: 100%;
-  max-width: 130px;
+
+.partner-logo-item img {
+  max-height: 48px;
+  max-width: 140px;
   object-fit: contain;
+  filter: contrast(105%);
+  transition: transform 0.3s ease;
+}
+
+.partner-logo-item:hover {
+  transform: translateY(-4px) scale(1.06);
+}
+
+@media (max-width: 991px) {
+  .partners-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 20px;
+  }
 }
 
 /* ── WHY US ── */
