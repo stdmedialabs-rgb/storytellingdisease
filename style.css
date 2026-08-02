@@ -37,11 +37,6 @@
   --panel-bg-strong: rgba(8, 8, 7, 0.92);
   --texture-line: rgba(255, 255, 255, 0.03);
   --watermark: rgba(255, 255, 255, 0.04);
-  --cursor-dot: #ffffff;
-  --cursor-ring: #ffffff;
-  --cursor-ring-hover: #ffffff;
-  --cursor-chip-bg: #ffffff;
-  --cursor-chip-fg: #080807;
 }
 
 /* ── LIGHT MODE ── */
@@ -121,63 +116,6 @@ div.lrow,
 #reel {
   position: relative;
   z-index: 1;
-}
-
-/* CURSOR */
-#cDot {
-  width: 10px;
-  height: 10px;
-  background: var(--cursor-dot);
-  border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0;
-  transition:
-    width 0.25s,
-    height 0.25s,
-    opacity 0.25s;
-}
-#cDot,
-#cRing,
-#cTxt {
-  will-change: transform, opacity;
-}
-#cRing {
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--cursor-ring);
-  border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9998;
-  opacity: 0;
-  transition:
-    width 0.3s,
-    height 0.3s,
-    opacity 0.3s;
-}
-#cTxt {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9997;
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--cursor-chip-fg);
-  background: var(--cursor-chip-bg);
-  padding: 4px 10px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  white-space: nowrap;
-  font-family: var(--FB);
-  font-weight: 500;
 }
 
 /* NAV */
