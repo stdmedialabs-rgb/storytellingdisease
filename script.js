@@ -173,7 +173,7 @@ document.querySelectorAll(".rv").forEach((el) => obs.observe(el));
 
 /* HERO TAGLINE ROTATION */
 const taglines = [
-  "Your Brand Has a Story. We Have the Disease",
+  "Your brand. Our story",
   "Cinema For Modern Brands",
   "We Craft Soulful Narratives",
 ];
