@@ -949,16 +949,16 @@ body.light-mode #films .films-intro strong {
   background: url("./assets/img/slide-promo.jpg") center/cover no-repeat;
 }
 .slide-bg-hr {
-  background: url("./assets/img/slide-hr.jpg") center/cover no-repeat;
+  background: url("./assets/img/shot-hr-1.png") center/cover no-repeat;
 }
 .slide-bg-masala {
-  background: url("./assets/img/slide-masala.jpg") center/cover no-repeat;
+  background: url("./assets/img/shot-masala-1.png") center/cover no-repeat;
 }
 .slide-bg-svt {
-  background: url("./assets/img/IMG_7214.JPG") center 10% / cover no-repeat;
+  background: url("./assets/img/shot-svt-1.png") center/cover no-repeat;
 }
 .slide-bg-acharya {
-  background: url("./assets/img/slide-acharya.jpg") center/cover no-repeat;
+  background: url("./assets/img/shot-acharya-1.png") center/cover no-repeat;
 }
 .slide-mark {
   font-family: var(--AN);

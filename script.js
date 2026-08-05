@@ -23,10 +23,12 @@ const slides = [
       {
         name: "Shwetha Construction",
         path: "./assets/video/HR construction/Shwetha construction.mp4",
+        poster: "./assets/img/shot-hr-1.png",
       },
       {
         name: "Avanthika Interior",
         path: "./assets/video/HR construction/Avanthika Int .mp4",
+        poster: "./assets/img/shot-hr-2.png",
       },
     ],
   },
@@ -41,18 +43,22 @@ const slides = [
       {
         name: "Biriyani Masala",
         path: "./assets/video/DM Masala/BIRIYANI MASALA.mp4",
+        poster: "./assets/img/shot-masala-1.png",
       },
       {
         name: "Chicken Masala",
         path: "./assets/video/DM Masala/CHICKEN MASALA.mp4",
+        poster: "./assets/img/shot-masala-2.png",
       },
       {
         name: "Kabab Masala",
         path: "./assets/video/DM Masala/KABAB.mp4",
+        poster: "./assets/img/shot-masala-3.png",
       },
       {
         name: "Sambar Masala",
         path: "./assets/video/DM Masala/SAMBAR.mp4",
+        poster: "./assets/img/shot-masala-4.png",
       },
     ],
   },
@@ -67,14 +73,17 @@ const slides = [
       {
         name: "30 Seconds TVC",
         path: "./assets/video/SVT/30 SECONDS.mp4",
+        poster: "./assets/img/shot-svt-1.png",
       },
       {
         name: "20 Seconds TVC",
         path: "./assets/video/SVT/20 SECONDS.mp4",
+        poster: "./assets/img/shot-svt-2.png",
       },
       {
         name: "15 Seconds TVC",
         path: "./assets/video/SVT/15 SECONDS.mp4",
+        poster: "./assets/img/shot-svt-3.png",
       },
     ],
   },
@@ -90,18 +99,22 @@ const slides = [
       {
         name: "Acharya Intro Promo",
         path: "./assets/video/Acharya/AIT_1 .mp4",
+        poster: "./assets/img/shot-acharya-1.png",
       },
       {
         name: "B.E. in Aeronautical Engineering",
         path: "./assets/video/Acharya/B.E. in Aeronautical Engineering.mp4",
+        poster: "./assets/img/shot-acharya-2.png",
       },
       {
         name: "B.E. in Artificial Intelligence & ML",
         path: "./assets/video/Acharya/B.E. in Artificial Intelligence & Machine Learning.mp4",
+        poster: "./assets/img/shot-acharya-3.png",
       },
       {
         name: "B.E. in Mechanical Engineering",
         path: "./assets/video/Acharya/B.E. in Mechanical Engineering.mp4",
+        poster: "./assets/img/shot-acharya-4.png",
       },
     ],
   },
@@ -219,6 +232,7 @@ if (sM && videoModal && modalVideo) {
             .querySelectorAll(".playlist-item")
             .forEach((el) => el.classList.remove("active"));
           btn.classList.add("active");
+          if (video.poster) modalVideo.poster = video.poster;
           modalVideo.src = video.path;
           modalVideo.play();
         });
@@ -226,6 +240,9 @@ if (sM && videoModal && modalVideo) {
       });
 
       // Load first video
+      if (currentSlide.videos[0].poster) {
+        modalVideo.poster = currentSlide.videos[0].poster;
+      }
       modalVideo.src = currentSlide.videos[0].path;
 
       // Show modal
