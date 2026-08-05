@@ -130,10 +130,6 @@ function bldT() {
     d.className = "sthumb" + (i === 0 ? " act" : "");
     const img = document.createElement("div");
     img.className = "sthumb-img " + s.bgClass;
-    const word = document.createElement("span");
-    word.className = "slide-mark";
-    word.textContent = s.w;
-    img.appendChild(word);
     const lbl = document.createElement("div");
     lbl.className = "thlbl";
     lbl.textContent = s.cat;
@@ -151,7 +147,6 @@ function goTo(n) {
   cur = ((n % slides.length) + slides.length) % slides.length;
   const s = slides[cur];
   document.getElementById("sMI").className = "smain-img " + s.bgClass;
-  document.getElementById("sMW").textContent = s.w;
   document.getElementById("sCC").textContent = s.cat;
   document.getElementById("sCT").textContent = s.title;
   document.getElementById("sCS").textContent = s.sub;
