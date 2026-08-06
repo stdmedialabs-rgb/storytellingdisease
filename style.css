@@ -939,7 +939,7 @@ body.light-mode #films .films-intro strong {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scale(1.15);
+  transform: scale(1.32);
   transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .slide-bg-pothys {
@@ -986,7 +986,7 @@ body.light-mode #films .films-intro strong {
   padding: 16px;
 }
 .smain:hover .smain-img {
-  transform: scale(1.22);
+  transform: scale(1.38);
 }
 .sinfo {
   position: absolute;
@@ -1053,7 +1053,7 @@ body.light-mode #films .films-intro strong {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scale(1.15);
+  transform: scale(1.32);
   transition:
     transform 0.5s,
     filter 0.5s;
@@ -1063,7 +1063,7 @@ body.light-mode #films .films-intro strong {
   filter: brightness(1) saturate(1);
 }
 .sthumb:hover .sthumb-img {
-  transform: scale(1.22);
+  transform: scale(1.38);
   filter: brightness(0.75);
 }
 .thlbl {
