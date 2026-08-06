@@ -13,26 +13,6 @@ window.cm = cm;
 /* SLIDES */
 const slides = [
   {
-    cat: "Digital Campaign",
-    title: "HR Construction & Interiors — Every Home is a Story!",
-    sub: "A digital campaign for Bengaluru's leading home construction brand featuring Shwetha Prasad and Avanthika Shetty. Built around the feeling of home, not just the structure of it.",
-    bgClass: "slide-bg-hr",
-    w: "HR",
-    f: "digital",
-    videos: [
-      {
-        name: "Shwetha Construction",
-        path: "./assets/video/HR construction/Shwetha construction.mp4",
-        poster: "./assets/img/shot-hr-1.png",
-      },
-      {
-        name: "Avanthika Interior",
-        path: "./assets/video/HR construction/Avanthika Int .mp4",
-        poster: "./assets/img/shot-hr-2.png",
-      },
-    ],
-  },
-  {
     cat: "TV Campaign",
     title: "Doddmane Masala — A flavour worth remembering!",
     sub: "A TV campaign for a homegrown masala brand rooted in the warmth of home cooking, featuring Harshika Poonacha. Each film different in story, same in soul.",
@@ -84,6 +64,26 @@ const slides = [
         name: "15 Seconds TVC",
         path: "./assets/video/SVT/15 SECONDS.mp4",
         poster: "./assets/img/shot-svt-3.png",
+      },
+    ],
+  },
+  {
+    cat: "Digital Campaign",
+    title: "HR Construction & Interiors — Every Home is a Story!",
+    sub: "A digital campaign for Bengaluru's leading home construction brand featuring Shwetha Prasad and Avanthika Shetty. Built around the feeling of home, not just the structure of it.",
+    bgClass: "slide-bg-hr",
+    w: "HR",
+    f: "digital",
+    videos: [
+      {
+        name: "Shwetha Construction",
+        path: "./assets/video/HR construction/Shwetha construction.mp4",
+        poster: "./assets/img/shot-hr-1.png",
+      },
+      {
+        name: "Avanthika Interior",
+        path: "./assets/video/HR construction/Avanthika Int .mp4",
+        poster: "./assets/img/shot-hr-2.png",
       },
     ],
   },
