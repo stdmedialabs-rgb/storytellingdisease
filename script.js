@@ -76,12 +76,12 @@ const slides = [
     f: "digital",
     videos: [
       {
-        name: "Shwetha Construction",
+        name: "HR Constructions & Solutions",
         path: "./assets/video/HR construction/Shwetha construction.mp4",
         poster: "./assets/img/shot-hr-1.png",
       },
       {
-        name: "Avanthika Interior",
+        name: "HR Interior",
         path: "./assets/video/HR construction/Avanthika Int .mp4",
         poster: "./assets/img/shot-hr-2.png",
       },
