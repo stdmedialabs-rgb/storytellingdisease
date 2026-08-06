@@ -14,10 +14,10 @@ window.cm = cm;
 const slides = [
   {
     cat: "TV Campaign",
-    title: "Doddmane Masala — A flavour worth remembering!",
+    title: "Dodmane Masala — A flavour worth remembering!",
     sub: "A TV campaign for a homegrown masala brand rooted in the warmth of home cooking, featuring Harshika Poonacha. Each film different in story, same in soul.",
     bgClass: "slide-bg-masala",
-    w: "DODDMANE",
+    w: "DODMANE MASALA",
     f: "tv",
     videos: [
       {
@@ -211,7 +211,7 @@ if (sM && videoModal && modalVideo) {
     const currentSlide = slides[cur];
     if (currentSlide?.videos?.length > 0) {
       // Set playlist header
-      playlistTitle.textContent = currentSlide.w + " Playlist";
+      playlistTitle.textContent = (currentSlide.w + " Playlist").toUpperCase();
 
       // Clear current playlist
       playlistList.innerHTML = "";
