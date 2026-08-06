@@ -2040,6 +2040,15 @@ body.light-mode .film-card:hover {
   transition: transform 0.3s ease;
 }
 
+.partner-logo-item img[alt*="Acharya"] {
+  max-height: 82px;
+  transform: scale(1.18);
+}
+
+.partner-logo-item:hover img[alt*="Acharya"] {
+  transform: scale(1.25);
+}
+
 .partner-logo-item:hover {
   transform: translateY(-4px) scale(1.06);
 }
