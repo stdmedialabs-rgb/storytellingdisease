@@ -23,7 +23,7 @@ const slides = [
       {
         name: "Biriyani Masala",
         path: "./assets/video/DM Masala/BIRIYANI MASALA.mp4",
-        poster: "./assets/img/shot-masala-1.png",
+        poster: "./assets/img/masala/Screenshot 2026-08-05 at 10.24.53 AM.png",
       },
       {
         name: "Chicken Masala",
@@ -99,7 +99,7 @@ const slides = [
       {
         name: "Acharya Intro Promo",
         path: "./assets/video/Acharya/AIT_1 .mp4",
-        poster: "./assets/img/shot-acharya-1.png",
+        poster: "./assets/img/acharya/Screenshot 2026-08-05 at 10.37.21 AM.png",
       },
       {
         name: "B.E. in Aeronautical Engineering",
