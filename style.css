@@ -945,7 +945,7 @@ body.light-mode #films .films-intro strong {
   background: url("./assets/img/shot-svt-1.png") center top/cover no-repeat;
 }
 .slide-bg-acharya {
-  background: url("./assets/img/shot-acharya-1.png") center top/cover no-repeat;
+  background: url("./assets/img/acharya/Screenshot 2026-08-05 at 10.37.21 AM.png") center top/cover no-repeat;
 }
 .slide-mark {
   font-family: var(--AN);
@@ -2820,6 +2820,24 @@ footer {
     aspect-ratio: 16 / 9;
     width: 100%;
     overflow: hidden;
+    position: relative;
+  }
+  .smain::after {
+    content: "‹ SWIPE ›";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 5;
+    font-size: 8px;
+    font-family: var(--FB);
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    padding: 4px 10px;
+    border-radius: 999px;
+    pointer-events: none;
   }
   .smain-img {
     inset: 0;
@@ -2827,6 +2845,35 @@ footer {
     height: 100%;
     background-size: cover !important;
     background-position: center !important;
+  }
+  .sinfo {
+    padding: 14px 16px;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.94) 0%,
+      rgba(0, 0, 0, 0.5) 60%,
+      transparent 100%
+    );
+  }
+  .scat {
+    font-size: 8px;
+    letter-spacing: 2px;
+    margin-bottom: 3px;
+  }
+  .stitle {
+    font-size: clamp(14px, 4vw, 18px);
+    line-height: 1.15;
+    letter-spacing: 0.5px;
+  }
+  .ssub {
+    font-size: 10px;
+    line-height: 1.35;
+    margin-top: 3px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    opacity: 0.85;
   }
   .tcol {
     flex-direction: row;
