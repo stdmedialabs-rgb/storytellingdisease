@@ -915,7 +915,14 @@ body.light-mode #films .films-intro strong {
   align-items: center;
   justify-content: center;
   transform: scale(1.02);
-  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition:
+    opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 1;
+}
+.smain-img.slide-transitioning {
+  opacity: 0.15;
+  transform: scale(1.06);
 }
 .slide-bg-pothys {
   background: url("./assets/img/slide-pothys.jpg") center/cover no-repeat;
@@ -975,6 +982,15 @@ body.light-mode #films .films-intro strong {
     rgba(0, 0, 0, 0.2) 60%,
     transparent 100%
   );
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 1;
+  transform: translateY(0);
+}
+.sinfo.text-transitioning {
+  opacity: 0;
+  transform: translateY(10px);
 }
 .scat {
   font-size: 9px;

@@ -143,16 +143,39 @@ function bldT() {
     c.appendChild(d);
   });
 }
+let isTransitioning = false;
 function goTo(n) {
-  cur = ((n % slides.length) + slides.length) % slides.length;
-  const s = slides[cur];
-  document.getElementById("sMI").className = "smain-img " + s.bgClass;
-  document.getElementById("sCC").textContent = s.cat;
-  document.getElementById("sCT").textContent = s.title;
-  document.getElementById("sCS").textContent = s.sub;
-  document.getElementById("slC").textContent = String(cur + 1).padStart(2, "0");
-  document.getElementById("slT").textContent = String(slides.length).padStart(2, "0");
-  bldT();
+  if (isTransitioning) return;
+  const nextCur = ((n % slides.length) + slides.length) % slides.length;
+
+  isTransitioning = true;
+  const sMI = document.getElementById("sMI");
+  const sinfo = document.querySelector(".sinfo");
+
+  if (sMI) sMI.classList.add("slide-transitioning");
+  if (sinfo) sinfo.classList.add("text-transitioning");
+
+  setTimeout(() => {
+    cur = nextCur;
+    const s = slides[cur];
+    if (sMI) sMI.className = "smain-img " + s.bgClass + " slide-transitioning";
+    document.getElementById("sCC").textContent = s.cat;
+    document.getElementById("sCT").textContent = s.title;
+    document.getElementById("sCS").textContent = s.sub;
+    document.getElementById("slC").textContent = String(cur + 1).padStart(2, "0");
+    document.getElementById("slT").textContent = String(slides.length).padStart(2, "0");
+    bldT();
+
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        if (sMI) sMI.classList.remove("slide-transitioning");
+        if (sinfo) sinfo.classList.remove("text-transitioning");
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 350);
+      }, 20);
+    });
+  }, 180);
 }
 bldT();
 document.getElementById("slN").addEventListener("click", () => goTo(cur + 1));
