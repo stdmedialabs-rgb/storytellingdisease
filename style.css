@@ -903,7 +903,8 @@ body.light-mode #films .films-intro strong {
   flex: 1;
   position: relative;
   overflow: hidden;
-  min-height: 460px;
+  aspect-ratio: 16 / 9;
+  min-height: 380px;
   background: var(--BK3);
   cursor: pointer;
 }
@@ -944,7 +945,7 @@ body.light-mode #films .films-intro strong {
   background: url("./assets/img/shot-svt-1.png") center top/cover no-repeat;
 }
 .slide-bg-acharya {
-  background: url("./assets/img/acharya/Screenshot 2026-08-05 at 10.37.21 AM.png") center top/cover no-repeat;
+  background: url("./assets/img/shot-acharya-1.png") center top/cover no-repeat;
 }
 .slide-mark {
   font-family: var(--AN);
@@ -1992,12 +1993,12 @@ body.light-mode .film-card:hover {
 
 .partner-logo-item {
   flex: 0 0 calc(20% - 20px);
-  max-width: 210px;
-  height: 80px;
+  max-width: 200px;
+  height: 85px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: 10px 14px;
   box-sizing: border-box;
   overflow: hidden;
   transition:
@@ -2006,26 +2007,38 @@ body.light-mode .film-card:hover {
 }
 
 .partner-logo-item img {
-  max-height: 68px;
-  max-width: 100%;
+  max-height: 52px;
+  max-width: 155px;
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: contrast(105%);
+  filter: contrast(102%);
   transition: transform 0.3s ease;
 }
 
 .partner-logo-item img[alt*="Acharya"] {
-  max-height: 82px;
-  transform: scale(1.18);
+  max-height: 48px;
+  max-width: 165px;
+  transform: none;
 }
 
-.partner-logo-item:hover img[alt*="Acharya"] {
-  transform: scale(1.25);
+.partner-logo-item img[alt*="Goutham"] {
+  max-height: 60px;
+  max-width: 110px;
+}
+
+.partner-logo-item img[alt*="Secret"] {
+  max-height: 58px;
+  max-width: 110px;
+}
+
+.partner-logo-item img[alt*="Dodmane"] {
+  max-height: 50px;
+  max-width: 140px;
 }
 
 .partner-logo-item:hover {
-  transform: translateY(-4px) scale(1.06);
+  transform: translateY(-3px) scale(1.05);
 }
 
 @media (max-width: 991px) {
@@ -2042,14 +2055,21 @@ body.light-mode .film-card:hover {
   .partner-logo-item {
     flex: 0 0 calc(33.333% - 16px);
     max-width: 180px;
-    height: 70px;
+    height: 72px;
+    padding: 8px 10px;
   }
   .partner-logo-item img {
-    max-height: 54px;
+    max-height: 46px;
+    max-width: 140px;
   }
   .partner-logo-item img[alt*="Acharya"] {
-    max-height: 56px;
-    transform: scale(1.04);
+    max-height: 44px;
+    max-width: 150px;
+    transform: none;
+  }
+  .partner-logo-item img[alt*="Goutham"] {
+    max-height: 52px;
+    max-width: 95px;
   }
 }
 
@@ -2077,16 +2097,21 @@ body.light-mode .film-card:hover {
     gap: 18px 10px;
   }
   .partner-logo-item {
-    height: 60px;
-    padding: 4px;
+    height: 64px;
+    padding: 6px;
   }
   .partner-logo-item img {
-    max-height: 44px;
-    max-width: 100%;
+    max-height: 40px;
+    max-width: 120px;
   }
   .partner-logo-item img[alt*="Acharya"] {
-    max-height: 46px;
-    transform: scale(1);
+    max-height: 40px;
+    max-width: 135px;
+    transform: none;
+  }
+  .partner-logo-item img[alt*="Goutham"] {
+    max-height: 48px;
+    max-width: 85px;
   }
 }
 
