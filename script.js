@@ -23,7 +23,7 @@ const slides = [
       {
         name: "Biriyani Masala",
         path: "./assets/video/DM Masala/BIRIYANI MASALA.mp4",
-        poster: "./assets/img/masala/Screenshot 2026-08-05 at 10.24.53 AM.png",
+        poster: "./assets/img/slide-masala.jpg",
       },
       {
         name: "Chicken Masala",
