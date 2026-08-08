@@ -467,36 +467,8 @@ body.light-mode #films .films-intro strong {
   color: var(--page-fg-strong);
 }
 
-/* ARCHITECTURAL HERO FRAME LINES ON WIDE SCREENS */
 .hero-frame-line {
-  position: absolute;
-  top: 90px;
-  bottom: 30px;
-  width: 1px;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    var(--border-strong) 20%,
-    var(--border-strong) 80%,
-    transparent 100%
-  );
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0.45;
-}
-
-.hero-frame-line.left {
-  left: 64px;
-}
-
-.hero-frame-line.right {
-  right: 64px;
-}
-
-@media (max-width: 1200px) {
-  .hero-frame-line {
-    display: none;
-  }
+  display: none !important;
 }
 
 .htitle {
@@ -700,7 +672,8 @@ body.light-mode #films .films-intro strong {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   background: #000;
 }
 .reel-overlay {
@@ -940,7 +913,7 @@ body.light-mode #films .films-intro strong {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scale(1.32);
+  transform: scale(1.02);
   transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .slide-bg-pothys {
@@ -962,16 +935,16 @@ body.light-mode #films .films-intro strong {
   background: url("./assets/img/slide-promo.jpg") center/cover no-repeat;
 }
 .slide-bg-hr {
-  background: url("./assets/img/shot-hr-1.png") center/cover no-repeat;
+  background: url("./assets/img/shot-hr-1.png") center top/cover no-repeat;
 }
 .slide-bg-masala {
-  background: url("./assets/img/masala/Screenshot 2026-08-05 at 10.24.53 AM.png") center/cover no-repeat;
+  background: url("./assets/img/masala/Screenshot 2026-08-05 at 10.24.53 AM.png") center 15%/cover no-repeat;
 }
 .slide-bg-svt {
-  background: url("./assets/img/shot-svt-1.png") center/cover no-repeat;
+  background: url("./assets/img/shot-svt-1.png") center top/cover no-repeat;
 }
 .slide-bg-acharya {
-  background: url("./assets/img/acharya/Screenshot 2026-08-05 at 10.37.21 AM.png") center/cover no-repeat;
+  background: url("./assets/img/acharya/Screenshot 2026-08-05 at 10.37.21 AM.png") center top/cover no-repeat;
 }
 .slide-mark {
   font-family: var(--AN);
@@ -987,7 +960,7 @@ body.light-mode #films .films-intro strong {
   padding: 16px;
 }
 .smain:hover .smain-img {
-  transform: scale(1.38);
+  transform: scale(1.06);
 }
 .sinfo {
   position: absolute;
