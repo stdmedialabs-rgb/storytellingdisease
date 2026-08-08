@@ -157,6 +157,34 @@ function goTo(n) {
 bldT();
 document.getElementById("slN").addEventListener("click", () => goTo(cur + 1));
 document.getElementById("slP").addEventListener("click", () => goTo(cur - 1));
+
+const slideMainEl = document.getElementById("sM");
+if (slideMainEl) {
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  slideMainEl.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    },
+    { passive: true },
+  );
+
+  slideMainEl.addEventListener(
+    "touchend",
+    (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeThreshold = 40;
+      if (touchEndX < touchStartX - swipeThreshold) {
+        goTo(cur + 1);
+      } else if (touchEndX > touchStartX + swipeThreshold) {
+        goTo(cur - 1);
+      }
+    },
+    { passive: true },
+  );
+}
 document.querySelectorAll(".fb").forEach((b) =>
   b.addEventListener("click", () => {
     document.querySelectorAll(".fb").forEach((x) => x.classList.remove("on"));
