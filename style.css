@@ -2009,100 +2009,118 @@ body.light-mode .film-card:hover {
 
 .partner-logo-item {
   width: 100%;
-  max-width: 280px;
-  height: 100px;
+  max-width: 320px;
+  height: 115px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 16px;
+  padding: 12px 20px;
   box-sizing: border-box;
   overflow: visible;
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .partner-logo-item img {
-  max-height: 72px;
-  max-width: 85%;
+  max-height: 62px;
+  max-width: 82%;
   width: auto;
   height: auto;
   object-fit: contain;
   filter: contrast(102%);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+/* Precise Visual Area Equalization across all 9 logos */
 .partner-logo-item img[alt*="Acharya"] {
-  max-height: 70px;
-  max-width: 88%;
-  transform: scale(1.08);
+  max-height: 62px;
+  max-width: 80%;
+  transform: scale(1.05);
 }
 
-.partner-logo-item img[alt*="Goutham"] {
-  max-height: 84px;
-  max-width: 78%;
-  transform: scale(1.08);
+.partner-logo-item img[alt*="Venkateshwara"],
+.partner-logo-item img[src*="SVT"] {
+  max-height: 52px;
+  max-width: 86%;
+  transform: scale(1.18);
 }
 
 .partner-logo-item img[alt*="Secret"] {
-  max-height: 78px;
+  max-height: 44px;
   max-width: 82%;
+  transform: scale(1.0);
+}
+
+.partner-logo-item img[alt*="Autodesk"] {
+  max-height: 70px;
+  max-width: 85%;
+  transform: scale(1.6);
 }
 
 .partner-logo-item img[alt*="Dodmane"] {
-  max-height: 75px;
-  max-width: 85%;
+  max-height: 58px;
+  max-width: 82%;
+  transform: scale(1.05);
+}
+
+.partner-logo-item img[alt*="Goutham"] {
+  max-height: 60px;
+  max-width: 76%;
+  transform: scale(0.96);
 }
 
 .partner-logo-item img[alt*="Sukthi"] {
-  max-height: 72px;
-  max-width: 82%;
+  max-height: 58px;
+  max-width: 80%;
+  transform: scale(1.05);
 }
 
 .partner-logo-item img[alt*="DICS"] {
-  max-height: 68px;
+  max-height: 52px;
   max-width: 82%;
+  transform: scale(1.28);
 }
 
-.partner-logo-item img[alt*="Autonics"] {
-  max-height: 68px;
-  max-width: 82%;
+.partner-logo-item img[alt*="Autonics"],
+.partner-logo-item img[alt*="OMRON"],
+.partner-logo-item img[src*="omron"] {
+  max-height: 42px;
+  max-width: 78%;
+  transform: scale(1.1);
 }
 
 .partner-logo-item:hover {
-  transform: translateY(-4px) scale(1.06);
+  transform: translateY(-4px);
+}
+
+.partner-logo-item:hover img {
+  filter: brightness(1.05);
 }
 
 @media (max-width: 991px) {
   #clients {
-    padding: 60px 20px;
+    padding: 60px 24px;
   }
   .partners-white-card {
-    padding: 32px 24px;
-    border-radius: 14px;
+    padding: 36px 28px;
+    border-radius: 16px;
   }
   .partners-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 28px 20px;
   }
   .partner-logo-item {
-    height: 85px;
-    padding: 6px 10px;
+    height: 95px;
+    padding: 10px 14px;
   }
-  .partner-logo-item img {
-    max-height: 60px;
-    max-width: 86%;
-  }
-  .partner-logo-item img[alt*="Acharya"] {
-    max-height: 56px;
-    max-width: 88%;
-    transform: none;
-  }
-  .partner-logo-item img[alt*="Goutham"] {
-    max-height: 68px;
-    max-width: 80%;
-    transform: none;
-  }
+  .partner-logo-item img[alt*="Acharya"] { max-height: 54px; transform: scale(1.05); }
+  .partner-logo-item img[alt*="Venkateshwara"], .partner-logo-item img[src*="SVT"] { max-height: 44px; transform: scale(1.15); }
+  .partner-logo-item img[alt*="Secret"] { max-height: 38px; transform: scale(1.0); }
+  .partner-logo-item img[alt*="Autodesk"] { max-height: 58px; transform: scale(1.5); }
+  .partner-logo-item img[alt*="Dodmane"] { max-height: 48px; transform: scale(1.05); }
+  .partner-logo-item img[alt*="Goutham"] { max-height: 50px; transform: scale(0.96); }
+  .partner-logo-item img[alt*="Sukthi"] { max-height: 48px; transform: scale(1.05); }
+  .partner-logo-item img[alt*="DICS"] { max-height: 44px; transform: scale(1.25); }
+  .partner-logo-item img[alt*="Autonics"], .partner-logo-item img[alt*="OMRON"], .partner-logo-item img[src*="omron"] { max-height: 36px; transform: scale(1.1); }
 }
 
 @media (max-width: 768px) {
@@ -2118,47 +2136,30 @@ body.light-mode .film-card:hover {
 
 @media (max-width: 580px) {
   #clients {
-    padding: 40px 14px;
+    padding: 48px 16px;
   }
   .partners-white-card {
-    padding: 24px 14px;
-    border-radius: 14px;
+    padding: 28px 16px;
+    border-radius: 16px;
   }
   .partners-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 18px 8px;
+    gap: 20px 10px;
   }
   .partner-logo-item {
-    height: 72px;
-    padding: 4px 2px;
+    height: 80px;
+    padding: 6px 6px;
     overflow: visible;
   }
-  .partner-logo-item img {
-    max-height: 48px;
-    max-width: 88%;
-  }
-  .partner-logo-item img[alt*="Acharya"] {
-    max-height: 44px;
-    max-width: 90%;
-    transform: none;
-  }
-  .partner-logo-item img[alt*="Goutham"] {
-    max-height: 54px;
-    max-width: 82%;
-    transform: none;
-  }
-  .partner-logo-item img[alt*="DICS"] {
-    max-height: 42px;
-    max-width: 86%;
-  }
-  .partner-logo-item img[alt*="Autonics"] {
-    max-height: 42px;
-    max-width: 86%;
-  }
-  .partner-logo-item img[alt*="Secret"] {
-    max-height: 46px;
-    max-width: 86%;
-  }
+  .partner-logo-item img[alt*="Acharya"] { max-height: 44px; transform: scale(1.05); }
+  .partner-logo-item img[alt*="Venkateshwara"], .partner-logo-item img[src*="SVT"] { max-height: 36px; transform: scale(1.15); }
+  .partner-logo-item img[alt*="Secret"] { max-height: 30px; transform: scale(1.0); }
+  .partner-logo-item img[alt*="Autodesk"] { max-height: 48px; transform: scale(1.45); }
+  .partner-logo-item img[alt*="Dodmane"] { max-height: 40px; transform: scale(1.05); }
+  .partner-logo-item img[alt*="Goutham"] { max-height: 42px; transform: scale(0.96); }
+  .partner-logo-item img[alt*="Sukthi"] { max-height: 40px; transform: scale(1.05); }
+  .partner-logo-item img[alt*="DICS"] { max-height: 36px; transform: scale(1.22); }
+  .partner-logo-item img[alt*="Autonics"], .partner-logo-item img[alt*="OMRON"], .partner-logo-item img[src*="omron"] { max-height: 30px; transform: scale(1.1); }
 }
 
 /* ── WHY US ── */
