@@ -171,6 +171,7 @@ nav.sc {
 .nlogo-text {
   display: flex;
   flex-direction: column;
+  gap: 3px;
   line-height: 1;
 }
 .nlogo-std {
@@ -3076,10 +3077,14 @@ footer {
     letter-spacing: 1.2px;
     white-space: nowrap;
   }
+  .nlogo-text {
+    gap: 5px;
+  }
   .nlogo-sub {
     font-size: 7.5px;
     letter-spacing: 1.2px;
     white-space: nowrap;
+    margin-top: 3px;
   }
   .htitle {
     text-align: left;
