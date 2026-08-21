@@ -2488,27 +2488,34 @@ footer {
 }
 .fsocs {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 .soc {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   border: 1px solid var(--border-soft);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
   color: var(--page-fg-muted);
   text-decoration: none;
   transition:
     border-color 0.3s,
-    color 0.3s;
-  font-family: var(--FB);
-  font-weight: 500;
+    color 0.3s,
+    background-color 0.3s,
+    transform 0.3s;
 }
 .soc:hover {
-  border-color: var(--border-strong);
-  color: var(--page-fg-strong);
+  border-color: var(--Yb);
+  color: var(--Yb);
+  background: rgba(255, 222, 0, 0.08);
+  transform: translateY(-2px);
+}
+.soc svg {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 .fch {
   font-size: 9px;
@@ -3052,6 +3059,22 @@ footer {
   .hero-logo-wrap {
     margin: 0 0 20px 0;
     justify-content: flex-start;
+    gap: 12px;
+  }
+  .hero-agency-name span:first-child {
+    font-size: 8.5px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+  .hero-agency-name strong {
+    font-size: clamp(10.5px, 3.2vw, 15px);
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+  }
+  .nlogo-sub {
+    font-size: 7.5px;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
   }
   .htitle {
     text-align: left;
